@@ -6,3 +6,11 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+.alinhar {
+
+    display: inline-block;
+    width: 90px;
+}
+.titulo{
+	color: red;
+}
