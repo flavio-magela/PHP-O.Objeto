@@ -1,29 +1,27 @@
-<?php include("cabecalho.php");?>
-<?php
-
-function insereProduto($conexao, $produto, $preco){
-	
-	$query = "insert into produtos (nome, preco) values ('{$produto}', {$preco})";
-	return mysqli_query($conexao,$query);
-
-}
-
-$nome = $_GET["nome"];
-$produto = $_GET["produto"];
-$preco = $_GET["preco"];
-
-$conexao = mysqli_connect('localhost', 'root', '', 'loja');
+<?php include("cabecalho.php");
+ include("conecta.php"); 
+ include("BD-produto.php");
 
 
-if (insereProduto($conexao, $produto, $preco)){
+$nome = $_POST["nome"];
+$produto = $_POST["produto"];
+$preco = $_POST["preco"];
+$descricao = $_POST["descricao"];
+
+
+if (insereProduto($conexao, $produto, $preco, $descricao)){
 	?>
-		<p class = "alert-success"> O Sr. <?=$nome; ?> comprou o produto <?= $produto; ?>, Custa R$ <?= $preco; ?>. Produto adicionado com sucesso!
+		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto; ?>, no valor de R$ <?= $preco; ?>. Produto adicionado com sucesso!
+		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
+
 	<?php
 	} else { 
+		$msg = mysqli_error($conexao);
 		?>
-			<p class = "alert-danger"> Erro ao inserir o Produto. Erro na conexão ou ao inserção nos campos!
+			<p class = "text-danger"> Erro ao inserir o Produto. Erro inserção nos campos: <?= $msg ?>
 		<?php
-};
+
+}
 mysqli_close($conexao);
 
 ?>

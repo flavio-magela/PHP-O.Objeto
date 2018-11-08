@@ -14,3 +14,6 @@ body {
 .titulo{
 	color: red;
 }
+.botao{
+	float: right;
+}
