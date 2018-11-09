@@ -12,7 +12,9 @@ function insereProduto($conexao, $produto, $preco, $descricao, $categoria){
 function listaProduto($conexao){
 
 	$produtos = array();
-	$query = "select * from produtos";
+	$query = "select prod.*, categ.nome as categoria_nome
+	          from produtos as prod join categorias as categ
+	          on categ.id=prod.categoria_id";
 	$resultado = mysqli_query($conexao, $query);
 	while ( $produto = mysqli_fetch_assoc($resultado)) {
 		
