@@ -21,6 +21,7 @@
 	        <th class=" titulo2">Produto</th>
 	        <th class=" titulo2">Preço</th>
 	        <th class=" titulo2">Descrição</th>
+	        <th class=" titulo2">Categoria ID</th>
 	        <th class="titulo2">Remover Produto</th>
 	          
 	</tr>	
@@ -32,7 +33,8 @@
 			<td ><?= $produto['id']?></td>
 			<td ><?= $produto['nome']?></td>
 			<td >R$ <?= $produto['preco']?></td>
-			<td ><?= substr($produto['descricao'], 0, 40)?></td>			
+			<td ><?= substr($produto['descricao'], 0, 40)?></td>
+			<td ><?= $produto['categoria_id']?></td>			
 			<td>
 				<form   action="remove-produto.php" method="POST"  >
 					<input  type="hidden" name=" id" value="<?= $produto['id']?>">
@@ -40,6 +42,7 @@
 				</form>
 				
 			</td>
+
 		</tr>
 	<?php	
 	endforeach

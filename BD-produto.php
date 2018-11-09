@@ -2,9 +2,9 @@
 <?php
 
    // ---------------Insere Produto-----------------
-function insereProduto($conexao, $produto, $preco, $descricao){
+function insereProduto($conexao, $produto, $preco, $descricao, $categoria){
 	
-	$query = "insert into produtos (nome, preco, descricao) values ('{$produto}', '{$preco}', '{$descricao}')";
+	$query = "insert into produtos (nome, preco, descricao, categoria_id) values ('{$produto}', '{$preco}', '{$descricao}', '{$categoria}')";
 	return mysqli_query($conexao,$query);
 
 }
@@ -12,7 +12,8 @@ function insereProduto($conexao, $produto, $preco, $descricao){
 function listaProduto($conexao){
 
 	$produtos = array();
-	$resultado = mysqli_query($conexao, "select * from produtos");
+	$query = "select * from produtos";
+	$resultado = mysqli_query($conexao, $query);
 	while ( $produto = mysqli_fetch_assoc($resultado)) {
 		
 		array_push($produtos, $produto);

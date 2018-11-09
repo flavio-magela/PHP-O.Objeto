@@ -7,9 +7,10 @@ $nome = $_POST["nome"];
 $produto = $_POST["produto"];
 $preco = $_POST["preco"];
 $descricao = $_POST["descricao"];
+$categoria = $_POST["categoria_id"];
 
 
-if (insereProduto($conexao, $produto, $preco, $descricao)){
+if (insereProduto($conexao, $produto, $preco, $descricao, $categoria)){
 	?>
 		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto; ?>, no valor de R$ <?= $preco; ?>. Produto adicionado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
