@@ -2,9 +2,9 @@
 <?php
 
    // ---------------Insere Produto-----------------
-function insereProduto($conexao, $produto, $preco, $descricao, $categoria){
+function insereProduto($conexao, $produto, $preco, $descricao, $usado, $categoria){
 	
-	$query = "insert into produtos (nome, preco, descricao, categoria_id) values ('{$produto}', '{$preco}', '{$descricao}', '{$categoria}')";
+	$query = "insert into produtos (nome, preco, descricao, usado, categoria_id) values ('{$produto}', '{$preco}', '{$descricao}', '{$usado}', '{$categoria}')";
 	return mysqli_query($conexao,$query);
 
 }
@@ -30,8 +30,6 @@ function removeProduto($conexao, $id){
 	return mysqli_query($conexao, $query);
 
 }
-
-
 
 
 ?>
