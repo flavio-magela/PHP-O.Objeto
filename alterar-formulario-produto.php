@@ -22,13 +22,13 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 		 </div>	
 
 		</div>	
-		<div class="form-group col-sm-5">
+		<!-- <div class="form-group col-sm-5">
 			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" /></br>
-		</div>	
-		<div class="form-group col-sm-4">
+		</div>	 -->
+		<div class="form-group col-sm-3">
 			<label class="alinhar">Produto</label><input  type="text" class="form-control" name="produto" value="<?=$produto['nome'] ?>" /></br>
 		</div>	
-		<div class="form-group col-sm-3">
+		<div class="form-group col-sm-2">
 			<label class="alinhar">Preço  </label> <input type="number" class="form-control" name="preco" value="<?=$produto['preco'] ?>" /></br>
 		</div>	
 		<div class="form-group col-sm-7">
@@ -78,7 +78,7 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 		
 	</div> 	
 	                 
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-11">
 	<button class="btn btn-primary" type="submit">Alterar</button> 
 </div>	
       

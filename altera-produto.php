@@ -3,7 +3,7 @@
  include("BD-produto.php");
 
 $id = $_POST["id"];
-$nome = $_POST["nome"];
+// $nome = $_POST["nome"];
 $produto = $_POST["produto"];
 $preco = $_POST["preco"];
 $descricao = $_POST["descricao"];

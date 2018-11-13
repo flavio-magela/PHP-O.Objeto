@@ -38,6 +38,7 @@ $categorias = ListaCategorias($conexao);
 					<!-- Criação da Categoria com Combo Box - Caixa de Seleção -->
 
 					<select name="categoria_id" class="form-control">
+
 						<?php foreach ($categorias as $categoria) : ?>
 
 						  <option value="<?= $categoria['id'] ?>"> <?= $categoria['nome']?></option>  
@@ -67,7 +68,10 @@ $categorias = ListaCategorias($conexao);
 	                 
 <div class="form-group col-sm-12">
 	<button class="btn btn-primary" type="submit">Cadastrar</button> 
-</div></br>	      
+</div></br>	 
+
+ <!-- Criação da Lista de Formulário      -->
+
 </form></br></br>
 <?php
 	if(array_key_exists("removido",$_GET) && $_GET["removido"]=="true"){
@@ -83,7 +87,7 @@ $categorias = ListaCategorias($conexao);
 
 ?>
  <table class="table table-striped table-bordered"> 
- 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> </br>
+ 	<h2 class="fa fa-list-alt titulo" > Produtos</h2> </br>
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
 	        <th class=" titulo1">Preço</th>
