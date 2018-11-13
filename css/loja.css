@@ -14,9 +14,21 @@ body {
 .titulo{
 	color: red;
 }
+.titulo1{
+	color: crimson;
+}
+.titulo2{
+	color: darkorange;
+}
 .botao{
 	float: right;
 }
 .radios{
 	background: none;
 }
+button:hover{
+	
+  color: red;
+ background-color: yellow;
+} 
+

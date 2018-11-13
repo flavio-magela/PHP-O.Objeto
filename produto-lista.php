@@ -16,31 +16,38 @@
 
 ?>
  <table class="table table-striped table-bordered"> 
- 	<tr>
-			<th class="titulo2">Nº</th>
-	        <th class=" titulo2">Produto</th>
-	        <th class=" titulo2">Preço</th>
-	        <th class=" titulo2">Descrição</th>
-	        <th class=" titulo2">Usado</th>
-	        <th class=" titulo2">Categoria</th>
-	        <th class="titulo2">Remover Produto</th>
+ 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> </br>
+ 	<tr></br>			
+	        <th class=" titulo1">Produto</th>
+	        <th class=" titulo1">Preço</th>
+	        <th class=" titulo1">Descrição</th>
+	        <th class=" titulo1">Usado</th>
+	        <th class=" titulo1">Categoria</th>
+	        <th class=" titulo1">Alterar</th>
+	        <th class="titulo1">Excluir</th>
 	          
 	</tr>	
 	<?php
 	$produtos =listaProduto($conexao);
 	foreach ($produtos as $produto) :
 	?>		
-		<tr>			 
-			<td ><?= $produto['id']?></td>
+		<tr>			
 			<td ><?= $produto['nome']?></td>
 			<td >R$ <?= $produto['preco']?></td>
 			<td ><?= substr($produto['descricao'], 0, 40)?></td>
 			<td ><?= $produto['usado']?></td>
-			<td ><?= $produto['categoria_nome']?></td>			
+			<td ><?= $produto['categoria_nome']?></td>	
 			<td>
-				<form   action="remove-produto.php" method="POST"  >
-					<input  type="hidden" name=" id" value="<?= $produto['id']?>">
-					<button tabindex="0" class=" fas fa-trash-alt text-danger btn btn-link  ml-auto "data-toggle="popover"  data-placement="right" data-trigger="focus" title="Excluir" type="Submit" id="btn-excluir"></button>
+				<form action="alterar-formulario-produto.php" method="POST"  >
+					<input  type="hidden" name="id" value="<?= $produto['id']?>">
+					<button tabindex="0" class=" fa fa-edit btn btn-link  ml-auto titulo2" aria-hidden="true" data-toggle="popover"  data-placement="right" data-trigger="focus" title="alterar" type="Submit" id="btn-alterar"></button>
+				</form>
+				
+			</td>		
+			<td>
+				<form action="remove-produto.php" method="POST"  >
+					<input  type="hidden" name="id" value="<?= $produto['id']?>">
+					<button tabindex="0" class=" fas fa-trash-alt text-danger btn btn-link  ml-auto titulo" data-toggle="popover"  data-placement="right" data-trigger="focus" title="Excluir" type="Submit" id="btn-excluir"></button>
 				</form>
 				
 			</td>

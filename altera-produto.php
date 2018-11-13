@@ -2,7 +2,7 @@
  include("conecta.php"); 
  include("BD-produto.php");
 
-
+$id = $_POST["id"];
 $nome = $_POST["nome"];
 $produto = $_POST["produto"];
 $preco = $_POST["preco"];
@@ -16,16 +16,16 @@ if(array_key_exists('usado', $_POST)){
 }
 
 
-if (insereProduto($conexao, $produto, $preco, $descricao, $usado, $categoria)){
+if (alteraProduto($conexao, $id, $produto, $preco, $descricao, $usado, $categoria)){
 	?>
-		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto; ?>, no valor de R$ <?= $preco; ?>. Produto adicionado com sucesso!
+		<p class = "text-success">  Produto <?= $produto; ?>, no valor de R$ <?= $preco; ?>. Foi alterado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
 	} else { 
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao inserir o Produto. Erro inserção nos campos: <?= $msg ?>
+			<p class = "text-danger"> Erro ao alterar o Produto: <?= $msg ?>
 		<?php
 
 }
