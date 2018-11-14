@@ -13,8 +13,8 @@
 	      	
 		<div class="modal-footer">
 
-        	<a href="remove-produto.php" method="POST" type="button" class="btn btn-danger" id="delete">Excluir</a>
-            <a href="produto-formulario.php" method="POST" type="button" class="btn btn-info" id="delete">Cancelar</a>
+        	<a href="remove-produto.php?id='$id'" method="POST" type="button" class="btn btn-danger" >Excluir</a>
+            <a href="produto-formulario.php?id='$id'" method="POST" type="button" class="btn btn-info" >Cancelar</a>
       	</div>        
             
       </div>
