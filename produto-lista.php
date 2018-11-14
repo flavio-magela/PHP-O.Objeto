@@ -1,12 +1,15 @@
 
 <?php include("cabecalho.php"); 
  include("conecta.php"); 
- include("BD-produto.php");?>
+
+?> 
+<?php// include("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
 <?php
 	if(array_key_exists("removido",$_GET) && $_GET["removido"]=="true"){
 
 ?>
-		<p class="alert-success" > Produto excluido com sucesso.</p>
+		echo "<script>alert('Produto Excluido com sucesso!');window.location.href='produto-formulario.php'</script>"; 
+		<!-- </br><p class="alert-success" > Produto excluido com sucesso.</p> -->
 
 <?php
 	
@@ -15,7 +18,7 @@
 	}
 
 ?>
- <table class="table table-striped table-bordered"> 
+ <table class="table table-striped table-bordered"> </br>
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> </br>
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
@@ -45,7 +48,7 @@
 				
 			</td>		
 			<td>
-				<form action="remove-produto.php" method="POST"  >
+				<form action="trata-botao.php" method="POST"  >
 					<input  type="hidden" name="id" value="<?= $produto['id']?>">
 					<button tabindex="0" class=" fas fa-trash-alt text-danger btn btn-link  ml-auto titulo" data-toggle="popover"  data-placement="right" data-trigger="focus" title="Excluir" type="Submit" id="btn-excluir"></button>
 				</form>

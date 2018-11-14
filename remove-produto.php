@@ -3,11 +3,13 @@
  include("BD-produto.php");?>
 
 <?php
+
  $id = $_POST['id'];
 
  removeProduto($conexao,$id);
- header("Location: produto-lista.php?removido=true");
+ header("Location: produto-formulario.php?removido=true");
  die();
+ 
  ?>
 
 
