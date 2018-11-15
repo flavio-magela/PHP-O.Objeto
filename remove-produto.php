@@ -7,9 +7,9 @@
  $id = $_POST['id'];
 
  removeProduto($conexao,$id);
- header("Location: produto-formulario.php?removido=true");
+ header("Location: trata-botao.php?removido=true");
  die();
- 
+
  ?>
 
 

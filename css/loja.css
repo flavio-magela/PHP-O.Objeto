@@ -28,7 +28,16 @@ body {
 }
 button:hover{
 	
-  color: red;
+ color: red;
  background-color: yellow;
 } 
+.tela{
+	width:500px;
+	height:100px;
+	
+	position:absolute;
+	z-index:100;
+	top:30%;
+	left:400;
+}
 
