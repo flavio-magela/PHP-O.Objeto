@@ -78,12 +78,16 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 		
 	</div> 	
 	                 
-<div class="form-group col-sm-11">
+<div class="form-group col-sm-1">
 	<button class="btn btn-primary" type="submit">Alterar</button> 
 </div>	
       
-</form>	   
+</form> 
 	   	
-<?php include("rodape.php"); ?>
+<?php
+ include("produto-lista.php");
+ include("rodape.php");
+
+ ?>
 
 </html>

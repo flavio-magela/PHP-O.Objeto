@@ -21,7 +21,7 @@ include("BD-produto.php");
     <div class="modal-content">
       <div class="modal-body">
       	
-            <p> Deseja realmente excluir o Produto: <?= $produto['nome']?>?</p>
+            <p> Deseja realmente excluir o Produto: <?= $produto['nome']?> no valor de R$ <?= $produto['preco']?>?</p>
 	      </div>
 	      <div class="modal-footer">
 		      	

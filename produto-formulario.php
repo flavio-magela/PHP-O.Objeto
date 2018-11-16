@@ -64,17 +64,18 @@ $categorias = ListaCategorias($conexao);
 
 		</table>
 		
+		
 	</div> 	
-	                 
-<div class="form-group col-sm-12">
-	<button class="btn btn-primary" type="submit">Cadastrar</button> 
-</div></br>	 
+		<div class="form-group col-sm-12">
+		<button class="btn btn-primary" type="submit">Cadastrar</button> 
+	</div></br>	 	                 
 
+</form>
  <!-- Criação da Lista de Formulário  - pegando do Form produto-lista.php     -->
 
-<table>
+<table class="table"></br>
 	
-	<?php include("produto-lista.php");?>
+		<?php include("produto-lista.php");?>
 
 </table>
 	   	
