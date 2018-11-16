@@ -18,8 +18,8 @@
 	}
 
 ?>
- <table class="table table-striped table-bordered"> </br>
- 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> </br>
+ <table class="table table-striped table-bordered">
+ 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> 
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
 	        <th class=" titulo1">Preço</th>
