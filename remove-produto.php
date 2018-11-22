@@ -10,13 +10,24 @@
 <?php
 
  $id = $_POST['id'];
+$produto = buscaProduto($conexao,$id);
+ if (removeProduto($conexao,$id)){
+	?>
+		<p class = "text-success">  Produto <?= $produto['nome']?> no valor de R$ <?= $produto['preco']?>. Foi Excluido com sucesso!
+		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
- removeProduto($conexao,$id); 
- $_SESSION["success"] = "Produto Excluido com sucesso!";
- header("Location: produto-formulario.php");
- die();
- 
- ?>
+	<?php
+	} else { 
+		$msg = mysqli_error($conexao);
+		?>
+			<p class = "text-danger"> Erro ao Excluir o Produto <?= $produto['nome']?> no valor de R$ <?= $produto['preco']?>: <?= $msg ?>
+		<?php
+
+}
+mysqli_close($conexao);
+
+?>
+	
 
 
 

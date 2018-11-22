@@ -30,7 +30,7 @@ include("BD-produto.php");
 				
 				<input   type="hidden" name="id" value="<?=$produto['id'] ?>"></br>
 				
-	        	<a href="remove-produto.php" method="POST" type="button" class="btn btn-danger" >Excluir</a>
+	        	<a  href="remove-produto.php"  method="POST" type="button" class="btn btn-danger" >Excluir</a>
 	        	
 	            <a href="produto-formulario.php" method="POST" type="button" class="btn btn-info" >Cancelar</a>
 	      	</div>  

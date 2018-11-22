@@ -62,16 +62,15 @@ $categorias = ListaCategorias($conexao);
 					<?php endforeach ?>
 
 				</td> -->
+				</div> 	
+				<div class="form-group col-sm-12">
+					<button class="btn btn-primary" type="submit">Cadastrar</button> 
+				</div></br>	 	
 
 			</tr>
 
-		</table>
-		
-		
-	</div> 	
-		<div class="form-group col-sm-12">
-		<button class="btn btn-primary" type="submit">Cadastrar</button> 
-	</div></br>	 	                 
+		</table>	
+	                 
 
 </form>
  <!-- Criação da Lista de Formulário  - pegando do Form produto-lista.php     -->

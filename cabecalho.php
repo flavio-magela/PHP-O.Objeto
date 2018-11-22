@@ -1,3 +1,11 @@
+<?php  
+   // No site www.php.net vc usa o error_reportint =(php.ini) para configurar tipos de msg q vc quer que apareça ou não no seu sistema (^ = menos a mensagem E_NOTICE);
+	 error_reporting(E_ALL ^ E_NOTICE);
+
+	 include("mostra-alerta.php");
+
+?>
+
 <html lang="pt-br">
 <head>
     <title>Minha loja</title>
@@ -33,4 +41,9 @@
     <div class="container">
 
         <div class="principal">
+  <?php 
+	mostraAlerta("success");
+	mostraAlerta("danger");
+?>
+
     <!-- fim cabecalho.php -->

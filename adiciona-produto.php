@@ -3,7 +3,7 @@
  include("BD-produto.php");
  include("logica-usuario.php");
 
-vericaUsuario();
+verificaUsuario();
 
 $nome = $_POST["nome"];
 $produto = $_POST["produto"];

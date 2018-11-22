@@ -45,13 +45,9 @@ function alteraProduto($conexao, $id, $produto, $preco, $descricao, $usado, $cat
 function removeProduto($conexao, $id){
 
 	$query = "delete from produtos where id = {$id}";
-	return mysqli_query($conexao, $query);
-
-	
+	return mysqli_query($conexao, $query);	
 
 }
-
-
 
 
 ?>

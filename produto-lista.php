@@ -1,18 +1,9 @@
 
-<?php include("cabecalho.php"); 
+<?php //include("cabecalho.php"); 
  include("conecta.php"); 
  include("BD-produto-lista.php");
- //include("logica-usuario.php");
 
 ?> 
-<?php
-if(isset($_SESSION["success"])){?>
-	<p class="alert-success"><?=$_SESSION["success"]?></p>
-<?php
-unset($_SESSION["success"]);
-}
-?>
-
 
 <?php// include("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
 
