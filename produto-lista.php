@@ -1,23 +1,21 @@
 
 <?php include("cabecalho.php"); 
  include("conecta.php"); 
+ include("BD-produto-lista.php");
+ //include("logica-usuario.php");
 
 ?> 
+<?php
+if(isset($_SESSION["success"])){?>
+	<p class="alert-success"><?=$_SESSION["success"]?></p>
+<?php
+unset($_SESSION["success"]);
+}
+?>
+
+
 <?php// include("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
-<?php
-	if(array_key_exists("removido",$_GET) && $_GET["removido"]=="true"){
 
-?>
-		echo "<script>alert('Produto Excluido com sucesso!');window.location.href='produto-formulario.php'</script>"; 
-		<!-- </br><p class="alert-success" > Produto excluido com sucesso.</p> -->
-
-<?php
-	
-     set_time_limit(10);
-
-	}
-
-?>
  <table class="table table-striped table-bordered">
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> 
  	<tr></br>			
@@ -31,7 +29,7 @@
 	          
 	</tr>	
 	<?php
-	$produtos =listaProduto($conexao);
+	$produtos =listaProduto2($conexao);
 	foreach ($produtos as $produto) :
 	?>		
 		<tr>			

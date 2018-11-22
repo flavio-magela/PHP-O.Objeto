@@ -79,9 +79,13 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 	</div> 	
 	                 
 <div class="form-group col-sm-1">
-	<button class="btn btn-primary" type="submit">Alterar</button> 
+	<button class="btn btn-primary" type="submit">Alterar</button>
+</div>
+<div > 
+	<a href="produto-formulario.php" method="POST" type="button" class="btn btn-info" >Cancelar</a>
+	
 </div>	
-      
+     
 </form> 
 	   	
 <?php

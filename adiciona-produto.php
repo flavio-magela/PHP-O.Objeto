@@ -1,7 +1,9 @@
 <?php include("cabecalho.php");
  include("conecta.php"); 
  include("BD-produto.php");
+ include("logica-usuario.php");
 
+vericaUsuario();
 
 $nome = $_POST["nome"];
 $produto = $_POST["produto"];

@@ -4,6 +4,9 @@
 include ("conecta.php");
 include("BD-categoria.php");
 include("BD-produto.php");
+include("logica-usuario.php");
+
+verificaUsuario();
 
 $categorias = ListaCategorias($conexao);
 
@@ -75,7 +78,12 @@ $categorias = ListaCategorias($conexao);
 
 <table class="table"></br>
 	
-		<?php include("produto-lista.php");?>
+		<?php 
+
+			include("produto-lista.php");
+
+
+		?>
 
 </table>
 	   	
