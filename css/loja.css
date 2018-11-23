@@ -44,3 +44,7 @@ button:hover{
 
 	clear: both;
 }
+.position{
+	float: left;
+	display: inline-block;
+}

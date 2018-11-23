@@ -22,76 +22,38 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 		 </div>	
 
 		</div>	
-		<!-- <div class="form-group col-sm-5">
-			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" /></br>
-		</div>	 -->
-		<div class="form-group col-sm-3">
-			<label class="alinhar">Produto</label><input  type="text" class="form-control" name="produto" value="<?=$produto['nome'] ?>" /></br>
-		</div>	
-		<div class="form-group col-sm-2">
-			<label class="alinhar">Preço  </label> <input type="number" class="form-control" name="preco" value="<?=$produto['preco'] ?>" /></br>
-		</div>	
-		<div class="form-group col-sm-7">
-			<label class="alinhar">Descrição </label><textarea name="descricao" class="form-control"><?=$produto['descricao'] ?></textarea></br>
-		</div>
 		
-		   <!-- campo ckeckbox -->
-		<div class="form-group col-sm-1">
-			<label class="alinhar">Usado</label> <input type="checkbox" class="form-control" name="usado" <?=$usado?> value="true" /></br>
-		</div>
+		<table class="table">
+			<?php include("produto-formulario-base.php") ?>
 
-		<table>
-			<tr>
-				<label class="form-group col-sm-1">Categoria</label>
-				<td>	
-					<!-- Criação da Categoria com Combo Box - Caixa de Seleção -->
+		</table></br>	
 
-					<select name="categoria_id" class="form-control">
-						<?php foreach ($categorias as $categoria) : 
+	     <!-- botão Alterar e Cancelar -->
 
-							$essaEhACategoria = $produto['categoria_id'] == $categoria['id']; 
-							$selecao = $essaEhACategoria ? "selected = 'selected'" : "";
-						?>
+		<div class="form-group col-sm-12">
+				<button class="btn btn-primary" type="submit">Alterar</button> 
+				<a href="produto-formulario.php" method="POST" type="button" class="btn btn-info" >Cancelar</a>
+		</div></br>	
+		<div  > 
+					
+			
+						
+		</div></br> 
+</form>	  
+<!-- Criação da Lista de Formulário  - pegando do Form produto-lista.php     -->
 
-						  <option value="<?= $categoria['id'] ?>" <?=$selecao?>> <?= $categoria['nome']?></option>  
-
-						<?php endforeach ?>
-
-					</select>				
-
-				</td>
-
-				<!-- Criação da Categoria com Radio - compo de Bolinha para seleção -->
-
-				<!-- <td>
-					<?php foreach ($categorias as $categoria) : ?>
-
-					  <input  type="radio" name="categoria_id" value="<?= $categoria['id'] ?>"> <?= $categoria['nome']?></br>
-
-					<?php endforeach ?>
-
-				</td> -->
-
-			</tr>
-
-		</table>
-		
-	</div> 	
-	                 
-<div class="form-group col-sm-1">
-	<button class="btn btn-primary" type="submit">Alterar</button>
-</div>
-<div > 
-	<a href="produto-formulario.php" method="POST" type="button" class="btn btn-info" >Cancelar</a>
+<table ></br>
 	
-</div>	
-     
-</form> 
+		<?php 
+
+			include("produto-lista.php");
+
+
+		?>
+
+</table>
 	   	
-<?php
- include("produto-lista.php");
- include("rodape.php");
+<?php include("rodape.php"); ?>
 
- ?>
+</html>	 
 
-</html>

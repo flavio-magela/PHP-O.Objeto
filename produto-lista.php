@@ -8,7 +8,7 @@
 <?php// include("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
 
  <table class="table table-striped table-bordered">
- 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2> 
+ 	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2></br>
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
 	        <th class=" titulo1">Preço</th>
