@@ -1,8 +1,8 @@
-<?php include("cabecalho.php"); 
- include("conecta.php"); 
- include("BD-produto.php");
- include("BD-produto-lista.php");
-  include("logica-usuario.php");
+<?php
+ require_once("cabecalho.php");  
+ require_once("BD-produto.php");
+ require_once("BD-produto-lista.php");
+  require_once("logica-usuario.php");
 
  ?>
 

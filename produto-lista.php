@@ -1,11 +1,11 @@
 
-<?php //include("cabecalho.php"); 
- include("conecta.php"); 
- include("BD-produto-lista.php");
+<?php 
+ require_once("cabecalho.php");  
+ require_once("BD-produto.php");
 
 ?> 
 
-<?php// include("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
+<?php// require_once("BD-produto.php"); retirar o //, caso for usar só a lista separada;?>
 
  <table class="table table-striped table-bordered">
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2></br>
@@ -20,7 +20,7 @@
 	          
 	</tr>	
 	<?php
-	$produtos =listaProduto2($conexao);
+	$produtos =listaProduto($conexao);
 	foreach ($produtos as $produto) :
 	?>		
 		<tr>			
@@ -51,4 +51,4 @@
 	?>
 </table>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>

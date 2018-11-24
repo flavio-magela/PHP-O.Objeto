@@ -1,5 +1,5 @@
 
-			<div class="form-group col-sm-5">
+		<div class="form-group col-sm-5">
 			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" placeholder="Nome do Comprador" required /></br>
 		</div>	
 		<div class="form-group col-sm-4">

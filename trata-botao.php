@@ -1,7 +1,7 @@
-<?php include("cabecalho.php");
-include ("conecta.php");
-include("BD-categoria.php");
-include("BD-produto.php");
+<?php 
+require_once("cabecalho.php");
+require_once("BD-categoria.php");
+require_once("BD-produto.php");
 
 
 
@@ -44,7 +44,7 @@ include("BD-produto.php");
 
   </div>
   <table  id="bloco">
-  	<?php include("produto-lista.php"); ?>
+  	<?php require_once("produto-lista.php"); ?>
   </table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

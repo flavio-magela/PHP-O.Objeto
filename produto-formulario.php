@@ -1,14 +1,14 @@
 
 
-<?php include("cabecalho.php");
-include ("conecta.php");
-include("BD-categoria.php");
-include("BD-produto.php");
-include("logica-usuario.php");
+<?php 
+require_once("cabecalho.php");
+require_once("BD-categoria.php");
+require_once("BD-produto.php");
+require_once("logica-usuario.php");
 
 verificaUsuario();
 $produto = array("nome"=> "", "descricao" => "", "preco" => "", "categoria_id" => "1");
-$usado = "";
+// $usado = "";
 $categorias = ListaCategorias($conexao);
 
 ?>
@@ -19,7 +19,7 @@ $categorias = ListaCategorias($conexao);
 	<div class="form-row"> 
 			
 		<table class="table">
-			<?php include("produto-formulario-base.php") ?>
+			<?php require_once("produto-formulario-base.php") ?>
 
 		</table></br>	
 	                 
@@ -33,13 +33,13 @@ $categorias = ListaCategorias($conexao);
 	
 		<?php 
 
-			include("produto-lista.php");
+			require_once("produto-lista.php");
 
 
 		?>
 
 </table>
 	   	
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
 
 </html>

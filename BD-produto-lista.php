@@ -1,8 +1,10 @@
-<?php    
+<?php  
+require_once("conecta.php");   
 
 	// ---------------Lista Produto-----------------
 function listaProduto2($conexao){
 
+	$sqlInj = mysqli_real_escape_string($conexao,$sqlInj);
 	$produtos = array();
 	$query = "select prod.*, categ.nome as categoria_nome
 	          from produtos as prod join categorias as categ

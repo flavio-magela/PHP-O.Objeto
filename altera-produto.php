@@ -1,6 +1,6 @@
-<?php include("cabecalho.php");
- include("conecta.php"); 
- include("BD-produto.php");
+<?php 
+require_once("cabecalho.php"); 
+ require_once("BD-produto.php");
 
 $id = $_POST["id"];
 // $nome = $_POST["nome"];
@@ -32,4 +32,4 @@ if (alteraProduto($conexao, $id, $produto, $preco, $descricao, $usado, $categori
 mysqli_close($conexao);
 
 ?>
-<?php include ("rodape.php"); ?>
+<?php require_once ("rodape.php"); ?>

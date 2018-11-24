@@ -1,9 +1,8 @@
 
-
-<?php include("cabecalho.php");
-include ("conecta.php");
-include("BD-categoria.php");
-include("BD-produto.php");
+<?php
+require_once("cabecalho.php");
+require_once("BD-categoria.php");
+require_once("BD-produto.php");
 
 $id = $_POST['id'];
 $produto = buscaProduto($conexao,$id);
@@ -24,7 +23,7 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 		</div>	
 		
 		<table class="table">
-			<?php include("produto-formulario-base.php") ?>
+			<?php require_once("produto-formulario-base.php") ?>
 
 		</table></br>	
 
@@ -46,14 +45,14 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 	
 		<?php 
 
-			include("produto-lista.php");
+			require_once("produto-lista.php");
 
 
 		?>
 
 </table>
 	   	
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
 
 </html>	 
 
