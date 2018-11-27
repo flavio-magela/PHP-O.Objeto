@@ -3,6 +3,9 @@ require_once("conecta.php");
    // ---------------Insere Produto-----------------
 function insereProduto($conexao, $produto, $preco, $descricao, $usado, $categoria){
 	
+	// $produto = htmlspecialchars_decode("nome");
+	// $descricao = htmlspecialchars_decode("descricao");
+
 	$query = "insert into produtos (nome, preco, descricao, usado, categoria_id) values ('{$produto}', '{$preco}', '{$descricao}', '{$usado}', '{$categoria}')";	
 	return mysqli_query($conexao,$query);
 }
