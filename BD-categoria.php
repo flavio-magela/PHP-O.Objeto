@@ -1,9 +1,8 @@
 <?php
 
    // ---------------Insere Produto-----------------
-function insereCategoria($conexao,  $nome){
+function insereCategoria($conexao, $nome){
 	
-	$sqlInj = mysqli_real_escape_string($conexao,$sqlInj);
 	$query = "insert into categorias (nome) values ('{$nome}')";
 	return mysqli_query($conexao,$query);
 
@@ -11,7 +10,6 @@ function insereCategoria($conexao,  $nome){
 // ---------------Lista Produto-----------------
 function listaCategorias($conexao){
 
-	$sqlInj = mysqli_real_escape_string($conexao,$sqlInj);
 	$categorias = array();
 	$query = "select * from categorias order by nome ASC";
 	$resultado = mysqli_query($conexao, $query);
@@ -25,7 +23,6 @@ function listaCategorias($conexao){
 // ---------------Remove Produto-----------------
 function removeCategorias($conexao, $id){
 
-	$sqlInj = mysqli_real_escape_string($conexao,$sqlInj);
 	$query = "delete from categorias where id = {$id}";
 	return mysqli_query($conexao, $query);
 

@@ -37,7 +37,7 @@
 				
 			</td>		
 			<td>
-				<form action="trata-botao.php" method="POST"  >
+				<form action="confirma-exclusao.php" method="POST"  >
 					<input  type="hidden" name="id" value="<?= $produto['id']?>">
 					<button tabindex="0" class=" fas fa-trash-alt text-danger btn btn-link  ml-auto titulo" data-toggle="popover"  data-placement="right" data-trigger="focus" title="Excluir" type="Submit" id="btn-excluir"></button>
 				</form>

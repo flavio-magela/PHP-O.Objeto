@@ -1,12 +1,8 @@
 <?php
- require_once("cabecalho.php");  
- require_once("BD-produto.php");
- require_once("BD-produto-lista.php");
-  require_once("logica-usuario.php");
-
+ require_once("cabecalho.php"); 
+ require_once("BD-produto.php"); 
+ require_once("logica-usuario.php");
  ?>
-
-
 <?php
 
  $id = $_POST['id'];

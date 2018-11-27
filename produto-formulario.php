@@ -8,7 +8,7 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 $produto = array("nome"=> "", "descricao" => "", "preco" => "", "categoria_id" => "1");
-// $usado = "";
+$usado = "";
 $categorias = ListaCategorias($conexao);
 
 ?>
