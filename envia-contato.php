@@ -18,13 +18,13 @@ $mail = new PHPMailer();
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
-$mail->SMTPSecure = 'tls';
+$mail->SMTPSecure = 'ssl';
 $mail->SMTPAuth = true;
-$mail->Username = "flavio.mrsantos@gmailcom";
+$mail->Username = "flavio.mrsantos@gmail.com";
 $mail->Password = "minha senha";
 
-$mail->setFrom("flavio.mrsantos@gmailcom", "Alura Curso PHP e MySQL");
-$mail->addAddress("flavio.mrsantos@gmailcom");
+$mail->setFrom("flavio.mrsantos@gmail.com", "Alura Curso PHP e MySQL");
+$mail->addAddress("flavio.mrsantos@gmail.com");
 $mail->Subject = "Email de contato da loja";
 $mail->msgHTML("<html>de: {$nome}<br/>email: {$email}<br/>mensagem: {$mensagem}</html>");
 $mail->AltBody = "de: {$nome}\nemail:{$email}\nmensagem: {$mensagem}";

@@ -3,12 +3,21 @@
 require_once("cabecalho.php");
 require_once("BD-categoria.php");
 require_once("BD-produto.php");
+require_once("class/Produto.php");
+require_once("class/Categoria.php");
+
+$produto = new Produto();
+$categoria = new Categoria();
+$categoria->id = $_POST["categoria_id"];
 
 $id = $_POST['id'];
 $produto = buscaProduto($conexao,$id);
-$categorias = ListaCategorias($conexao);
+//$categorias = ListaCategorias($conexao);
+
 //operador ternário
-$usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a true retorna checked se não retorna ""
+$selecao_usado = $produto->usado ? "checked='checked'" : "";
+$produto->usado = $selecao_usado;
+
 ?>
 
 <h2 class="fa fa fa-edit titulo" > Alterando o Produto</h2> 		
@@ -17,15 +26,12 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 	<div class="form-row"> 
 		 <!-- esconde o id - hidden -->
 		 <div>
-		 	<input   type="hidden" name="id" value="<?=$produto['id'] ?>"></br>
+		 	<input   type="hidden" name="id" value="<?=$produto->produto['id'] ?>"></br>
 		 </div>	
 
-		</div>	
+		</div>			
 		
-		<table class="table">
 			<?php require_once("produto-formulario-base.php") ?>
-
-		</table></br>	
 
 	     <!-- botão Alterar e Cancelar -->
 
@@ -38,7 +44,7 @@ $usado = $produto ['usado']? "checked='checked'" : ""; //si for usado iqual a tr
 			
 						
 		</div></br> 
-</form>	  
+</form></br>	  
 <!-- Criação da Lista de Formulário  - pegando do Form produto-lista.php     -->
 
 <table ></br>

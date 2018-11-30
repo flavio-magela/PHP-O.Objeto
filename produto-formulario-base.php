@@ -1,20 +1,27 @@
+<?php 
+require_once("class/Categoria.php");
+require_once("BD-categoria.php");
+$categoria = new Categoria();
+$categorias = ListaCategorias($conexao);
+
+?>
 
 		<div class="form-group col-sm-5">
 			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" placeholder="Nome do Comprador" required /></br>
 		</div>	
 		<div class="form-group col-sm-4">
-			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="produto" value="<?=$produto['nome'] ?>" /></br>
+			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="produto" value="<?= $produto->produto?>" /></br>
 		</div>	
 		<div class="form-group col-sm-3">
-			<label class="alinhar">Preço  </label> <input placeholder="Preço do Produto" required type="number" class="form-control" name="preco" value="<?=$produto['preco'] ?>" /></br>
+			<label class="alinhar">Preço  </label> <input placeholder="Preço do Produto" required type="number" class="form-control" name="preco" value="<?= $produto->preco ?>" /></br>
 		</div>	
 		<div class="form-group col-sm-7">
-			<label class="alinhar">Descrição  </label> <textarea placeholder="Descrição do Produto" required name="descricao" class="form-control"><?=$produto['descricao'] ?></textarea></br>
+			<label class="alinhar">Descrição  </label> <textarea placeholder="Descrição do Produto" required name="descricao" class="form-control"><?= $produto->descricao ?></textarea></br>
 		</div>
 
 		   <!-- campo ckeckbox -->
 		<div class="form-group col-sm-1">
-			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?=$usado?> value="true" /></br>
+			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->usado?> value="true" /></br>
 		</div>
 
 		<table>
@@ -26,11 +33,11 @@
 					<select name="categoria_id" class="form-control">
 						<?php foreach ($categorias as $categoria) : 
 
-							$essaEhACategoria = $produto['categoria_id'] == $categoria['id']; 
+							$essaEhACategoria = $produto->categoria->id == $categoria->id; 
 							$selecao = $essaEhACategoria ? "selected = 'selected'" : "";
 						?>
 
-						  <option value="<?= $categoria['id'] ?>" <?=$selecao?>> <?= $categoria['nome']?></option>  
+						  <option value="<?= $categoria->id?>" <?=$selecao?>> <?= $categoria->nome?></option>  
 
 						<?php endforeach ?>
 
@@ -51,6 +58,8 @@
 				
 			</tr>
 
-		</table>	
+
+		</table>
+	
 
 
