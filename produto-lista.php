@@ -2,16 +2,15 @@
 <?php 
  require_once("cabecalho.php");  
  require_once("BD-produto.php");
- // require_once("BD-categoria.php");
- // require_once("class/Produto.php");
- // require_once("class/Categoria.php")
-
+ //require_once("Produto.php");
+ 
 ?> 
  <table class="table table-striped table-bordered">
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2></br>
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
-	        <th class=" titulo1">Preço</th>
+	        <th class=" titulo1">Preço Unid.</th>
+	        <th class=" titulo1">Preço Final</th>
 	        <th class=" titulo1">Descrição</th>
 	        <th class=" titulo1">Usado</th>
 	        <th class=" titulo1">Categoria</th>
@@ -21,25 +20,26 @@
 	</tr>	
 	<?php
 	$produtos =listaProdutos($conexao);
-	//$categorias = ListaCategorias($conexao);
+	
 	foreach ($produtos as $produto) :
 	?>		
 		<tr>			
-			<td ><?= $produto->produto ?></td>
-			<td >R$ <?= $produto->preco ?></td>
-			<td ><?= substr($produto->descricao, 0, 40)?></td>
-			<td ><?= $produto->usado ?></td>
-			<td ><?= $produto->categoria->nome ?></td>	
+			<td ><?= $produto->getProduto() ?></td>
+			<td >R$ <?= $produto->getPreco() ?></td>
+			<td >R$ <?= $produto->precoComDesconto(0.2) ?></td>
+			<td ><?= substr($produto->getDescricao(), 0, 40)?></td>
+			<td ><?= $produto->getUsado() ?></td>
+			<td ><?= $produto->getCategoria()->getNome() ?></td>	
 			<td>
 				<form action="alterar-formulario-produto.php" method="POST"  >
-					<input  type="hidden" name="id" value="<?= $produto->id ?>">
+					<input  type="hidden" name="id" value="<?= $produto->getId() ?>">
 					<button tabindex="0" class=" fa fa-edit btn btn-link  ml-auto titulo2" aria-hidden="true" data-toggle="popover"  data-placement="right" data-trigger="focus" title="alterar" type="Submit" id="btn-alterar"></button>
 				</form>
 				
 			</td>		
 			<td>
 				<form action="confirma-exclusao.php" method="POST"  >
-					<input  type="hidden" name="id" value="<?= $produto->id ?>">
+					<input  type="hidden" name="id" value="<?= $produto->getId() ?>">
 					<button tabindex="0" class=" fas fa-trash-alt text-danger btn btn-link  ml-auto titulo" data-toggle="popover"  data-placement="right" data-trigger="focus" title="Excluir" type="Submit" id="btn-excluir"></button>
 				</form>
 				

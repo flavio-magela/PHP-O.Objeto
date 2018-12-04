@@ -1,32 +1,32 @@
 <?php 
 require_once("cabecalho.php");  
- require_once("BD-produto.php");
- require_once("logica-usuario.php");
- require_once("class/Produto.php");
- require_once("class/Categoria.php");
+require_once("BD-produto.php");
+require_once("logica-usuario.php");
+require_once("class/Produto.php");
+require_once("class/Categoria.php");
 
 verificaUsuario();
 
-$produto = new Produto();
 $categoria = new Categoria();
-$categoria->id = $_POST["categoria_id"];
+$categoria->setId($_POST["categoria_id"]);
 
+$produto = new Produto();
 $nome = $_POST["nome"];
-$produto->produto = $_POST["produto"];
-$produto->preco = $_POST["preco"];
-$produto->descricao = $_POST["descricao"];
-$produto->categoria = $categoria;
+$produto->setProduto($_POST["produto"]) ;
+$produto->setPreco($_POST["preco"]);
+$produto->setDescricao($_POST["descricao"]);
+$produto->setCategoria($categoria);
 
 if(array_key_exists('usado', $_POST)){
-	$produto->usado = true;	
+	$produto->setUsado("true");	
 } else{
-	$produto->usado = false;
+	$produto->setUsado("false");
 }
 
 
 if (insereProduto($conexao, $produto)){
 	?>
-		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->produto; ?>, no valor de R$ <?= $produto->preco; ?>. Produto adicionado com sucesso!
+		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProduto(); ?>, no valor de R$ <?= $produto->getPreco(); ?>. Produto adicionado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php

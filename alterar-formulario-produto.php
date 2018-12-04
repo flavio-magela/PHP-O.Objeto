@@ -1,4 +1,3 @@
-
 <?php
 require_once("cabecalho.php");
 require_once("BD-categoria.php");
@@ -6,17 +5,18 @@ require_once("BD-produto.php");
 require_once("class/Produto.php");
 require_once("class/Categoria.php");
 
-$produto = new Produto();
-$categoria = new Categoria();
-$categoria->id = $_POST["categoria_id"];
+// $categoria = new Categoria();
+// $categoria->getId($_POST["categoria_id"]);
 
 $id = $_POST['id'];
+
+//$produto = new Produto();
 $produto = buscaProduto($conexao,$id);
-//$categorias = ListaCategorias($conexao);
+$categorias = ListaCategorias($conexao);
 
 //operador ternário
-$selecao_usado = $produto->usado ? "checked='checked'" : "";
-$produto->usado = $selecao_usado;
+$selecao_usado = $produto->getUsado() ? "checked='checked'" : "";
+$produto->setUsado($selecao_usado);
 
 ?>
 
@@ -26,7 +26,7 @@ $produto->usado = $selecao_usado;
 	<div class="form-row"> 
 		 <!-- esconde o id - hidden -->
 		 <div>
-		 	<input   type="hidden" name="id" value="<?=$produto->produto['id'] ?>"></br>
+		 	<input   type="hidden" name="id" value="<?=$produto->getId() ?>"></br>
 		 </div>	
 
 		</div>			

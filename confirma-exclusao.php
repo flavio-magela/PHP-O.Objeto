@@ -12,7 +12,7 @@ $produto = new Produto();
 
  $categorias = ListaCategorias($conexao);
   //operador ternário
- $produto->usado = $produto->usado ? "checked='checked'" : ""; //si for usado iqual a true retorna checked se não retorna ""
+ $produto->getusado($produto->getUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
  
  if (buscaProduto($conexao,$id)){
 ?>			
@@ -21,12 +21,12 @@ $produto = new Produto();
 		<div  class="modal-content"></br>
 			<div class="modal-body">
 			      	
-			    <p> Deseja realmente excluir o Produto: <?= $produto->produto?> no valor de R$ <?= $produto->preco?>?</p>
+			    <p> Deseja realmente excluir o Produto: <?= $produto->getProduto()?> no valor de R$ <?= $produto->getPreco()?>?</p>
 			</div>
 	   		<div class="modal-footer">
 				<form action="remove-produto.php" method="POST"  >						
 							
-					<input   type="hidden" name="id" value="<?=$produto->id ?>"></br>
+					<input   type="hidden" name="id" value="<?=$produto->getId() ?>"></br>
 					
 		        	<button tabindex="0" class="btn btn-danger" data-trigger="focus" text-danger btn btn-link  ml-auto titulo" data-toggle="popover"  data-placement="right" >Excluir</button>
 			       
@@ -42,7 +42,7 @@ $produto = new Produto();
 	} else { 
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao Excluir o Produto <?= $produto['nome']?> no valor de R$ <?= $produto['preco']?>: <?= $msg ?>
+			<p class = "text-danger"> Erro ao Excluir o Produto <?= $produto->getProduto()?> no valor de R$ <?= $produto->getPreco()?>: <?= $msg ?>
 		<?php
 
 }

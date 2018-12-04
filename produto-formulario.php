@@ -10,14 +10,14 @@ require_once("class/Categoria.php");
 verificaUsuario();
 
 $categoria = new Categoria();
-$categoria->id = 1;
+$categoria->SetId(1);
 
 $produto = new Produto();
-$produto->categoria = $categoria;
+$produto->SetCategoria($categoria);
 
 /*Essa opção habilitada - Não aparece o botão de Cadastrar - mas tb as categorias não aparecem no form */
 
-//$categorias = ListaCategorias($conexao);
+$categorias = ListaCategorias($conexao);
 
 ?>
 

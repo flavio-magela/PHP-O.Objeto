@@ -10,18 +10,18 @@ $categorias = ListaCategorias($conexao);
 			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" placeholder="Nome do Comprador" required /></br>
 		</div>	
 		<div class="form-group col-sm-4">
-			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="produto" value="<?= $produto->produto?>" /></br>
+			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="produto" value="<?= $produto->getProduto()?>" /></br>
 		</div>	
 		<div class="form-group col-sm-3">
-			<label class="alinhar">Preço  </label> <input placeholder="Preço do Produto" required type="number" class="form-control" name="preco" value="<?= $produto->preco ?>" /></br>
+			<label class="alinhar">Preço  </label> <input placeholder="Preço do Produto" required type="number" class="form-control" name="preco" value="<?= $produto->getPreco() ?>" /></br>
 		</div>	
 		<div class="form-group col-sm-7">
-			<label class="alinhar">Descrição  </label> <textarea placeholder="Descrição do Produto" required name="descricao" class="form-control"><?= $produto->descricao ?></textarea></br>
+			<label class="alinhar">Descrição  </label> <textarea placeholder="Descrição do Produto" required name="descricao" class="form-control"><?= $produto->getDescricao() ?></textarea></br>
 		</div>
 
 		   <!-- campo ckeckbox -->
 		<div class="form-group col-sm-1">
-			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->usado?> value="true" /></br>
+			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->getUsado() ?> value="true" /></br>
 		</div>
 
 		<table>
@@ -33,11 +33,11 @@ $categorias = ListaCategorias($conexao);
 					<select name="categoria_id" class="form-control">
 						<?php foreach ($categorias as $categoria) : 
 
-							$essaEhACategoria = $produto->categoria->id == $categoria->id; 
+							$essaEhACategoria = $produto->getCategoria()->getId() == $categoria->getId(); 
 							$selecao = $essaEhACategoria ? "selected = 'selected'" : "";
 						?>
 
-						  <option value="<?= $categoria->id?>" <?=$selecao?>> <?= $categoria->nome?></option>  
+						  <option value="<?= $categoria->getid()?>" <?=$selecao?>> <?= $categoria->getNome() ?></option>  
 
 						<?php endforeach ?>
 
@@ -45,16 +45,7 @@ $categorias = ListaCategorias($conexao);
 
 				</td>
 
-				<!-- Criação da Categoria com Radio - compo de Bolinha para seleção -->
-
-				<!-- <td>
-					<?php foreach ($categorias as $categoria) : ?>
-
-					  <input  type="radio" name="categoria_id" value="<?= $categoria['id'] ?>"> <?= $categoria['nome']?></br>
-
-					<?php endforeach ?>
-
-				</td> -->
+				
 				
 			</tr>
 

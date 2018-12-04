@@ -19,8 +19,8 @@ function listaCategorias($conexao) {
     while ($categoria_array = mysqli_fetch_assoc($resultado)) {
 
         $categoria = new Categoria();
-        $categoria->id = $categoria_array['id'];
-        $categoria->nome = $categoria_array['nome'];
+        $categoria->SetId($categoria_array['id']);
+        $categoria->SetNome($categoria_array['nome']);
 
         array_push($categorias, $categoria);
     }

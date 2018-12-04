@@ -5,33 +5,33 @@
  require_once("class/Categoria.php");
 
 $categoria = new Categoria();
-$categoria->id = $_POST["categoria_id"];
+$categoria->setId($_POST["categoria_id"]);
+
 
 $produto = new Produto();
-$produto->id = $_POST["id"];
+$produto->setId($_POST["id"]);
 $nome = $_POST["nome"];
-$produto->produto = $_POST["produto"];
-$produto->preco = $_POST["preco"];
-$produto->descricao = $_POST["descricao"];
-$produto->categoria = $categoria;
+$produto->setProduto($_POST["produto"]);
+$produto->setPreco($_POST["preco"]);
+$produto->setDescricao($_POST["descricao"]);
+$produto->setCategoria($categoria);
 
 if(array_key_exists('usado', $_POST)){
-	$produto->usado = 'true';	
+	$produto->setUsado("true");	
 } else{
-	$produto->usado = 'false';
+	$produto->setUsado("false");
 }
-
 
 if (alteraProduto($conexao, $produto)){
 	?>
-		<p class = "text-success">  Produto <?= $produto->produto; ?>, no valor de R$ <?= $produto->preco; ?>. Foi alterado com sucesso!
+		<p class = "text-success"> O Produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Foi alterado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
 	} else { 
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao alterar o Produto: <?= $msg ?>
+			<p class = "text-danger"> Erro ao alterar o produto:<?= $produto->getProduto() ?>. Erro: <?= $msg ?>
 		<?php
 
 }

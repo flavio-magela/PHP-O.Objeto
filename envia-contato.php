@@ -4,9 +4,9 @@ session_start();
 
 //require_once("contato.php");
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$mensagem = $_POST["mensagem"];
+$nome = "nome teste";
+$email = "email teste";
+$mensagem = "mensagem teste";
 
 /* utilizar o PHPMailer */
 
@@ -16,12 +16,13 @@ require_once("PHPMailerAutoload.php");
 
 $mail = new PHPMailer();
 $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPSecure = 'ssl';
-$mail->SMTPAuth = true;
+$mail->SMTPDebug = 0;        // Debugar: 1 = erros e mensagens, 2 = mensagens apenas
+$mail->SMTPAuth = true;        // Autenticação ativada
+$mail->SMTPSecure = 'tls';    // TLS REQUERIDO pelo GMail
+$mail->Host = 'smtp.gmail.com';    // SMTP utilizado
+$mail->Port = 587;          // A porta 587 deverá estar aberta em seu servidor
 $mail->Username = "flavio.mrsantos@gmail.com";
-$mail->Password = "minha senha";
+$mail->Password = "minha senha =)";
 
 $mail->setFrom("flavio.mrsantos@gmail.com", "Alura Curso PHP e MySQL");
 $mail->addAddress("flavio.mrsantos@gmail.com");
