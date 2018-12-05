@@ -7,20 +7,20 @@
 $categoria = new Categoria();
 $categoria->setId($_POST["categoria_id"]);
 
-
-$produto = new Produto();
-$produto->setId($_POST["id"]);
 $nome = $_POST["nome"];
-$produto->setProduto($_POST["produto"]);
-$produto->setPreco($_POST["preco"]);
-$produto->setDescricao($_POST["descricao"]);
-$produto->setCategoria($categoria);
+$produtoNome =$_POST["produto"] ;
+$preco = $_POST["preco"];
+$descricao =$_POST["descricao"];
+$categoria = $categoria;
 
 if(array_key_exists('usado', $_POST)){
-	$produto->setUsado("true");	
+	$usado = "true";	
 } else{
-	$produto->setUsado("false");
+	$usado = "false";
 }
+
+$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
+
 
 if (alteraProduto($conexao, $produto)){
 	?>

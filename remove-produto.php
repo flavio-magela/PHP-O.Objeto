@@ -9,13 +9,11 @@
 
 $id = $_POST['id'];
 
-$produto = new Produto(); 
-// $produto->setProduto($_POST["produto"]);
-// $produto->setPreco($_POST["preco"]);
 //operador ternário
-$produto->getusado($produto->getUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
+$usado = $produto->getUsado() ? "checked='checked'" : ""; //si for usado iqual a true retorna checked se não retorna ""
 
 $produto = buscaProduto($conexao,$id);  
+$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
 
  if (removeProduto($conexao,$id)){
 	?>

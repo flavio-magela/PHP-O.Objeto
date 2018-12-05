@@ -10,30 +10,31 @@ verificaUsuario();
 $categoria = new Categoria();
 $categoria->setId($_POST["categoria_id"]);
 
-$produto = new Produto();
 $nome = $_POST["nome"];
-$produto->setProduto($_POST["produto"]) ;
-$produto->setPreco($_POST["preco"]);
-$produto->setDescricao($_POST["descricao"]);
-$produto->setCategoria($categoria);
+$produtoNome =$_POST["produto"] ;
+$preco = $_POST["preco"];
+$descricao =$_POST["descricao"];
+$categoria = $categoria;
 
 if(array_key_exists('usado', $_POST)){
-	$produto->setUsado("true");	
+	$usado = "true";	
 } else{
-	$produto->setUsado("false");
+	$usado = "false";
 }
+
+$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
 
 
 if (insereProduto($conexao, $produto)){
 	?>
-		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProduto(); ?>, no valor de R$ <?= $produto->getPreco(); ?>. Produto adicionado com sucesso!
+		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Produto adicionado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
 	} else { 
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao inserir o Produto. Erro inserção nos campos: <?= $msg ?>
+			<p class = "text-danger"> Erro ao inserir o produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Erro inserção nos campos: <?= $msg ?>
 		<?php
 
 }

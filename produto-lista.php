@@ -2,7 +2,6 @@
 <?php 
  require_once("cabecalho.php");  
  require_once("BD-produto.php");
- //require_once("Produto.php");
  
 ?> 
  <table class="table table-striped table-bordered">
@@ -26,10 +25,10 @@
 		<tr>			
 			<td ><?= $produto->getProduto() ?></td>
 			<td >R$ <?= $produto->getPreco() ?></td>
-			<td >R$ <?= $produto->precoComDesconto(0.2) ?></td>
+			<td >R$ <?= $produto->precoComDesconto(0.1) ?></td>
 			<td ><?= substr($produto->getDescricao(), 0, 40)?></td>
 			<td ><?= $produto->getUsado() ?></td>
-			<td ><?= $produto->getCategoria()->getNome() ?></td>	
+			 <td ><?= $nome->getNome() ?></td>
 			<td>
 				<form action="alterar-formulario-produto.php" method="POST"  >
 					<input  type="hidden" name="id" value="<?= $produto->getId() ?>">

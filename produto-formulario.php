@@ -12,10 +12,7 @@ verificaUsuario();
 $categoria = new Categoria();
 $categoria->SetId(1);
 
-$produto = new Produto();
-$produto->SetCategoria($categoria);
-
-/*Essa opção habilitada - Não aparece o botão de Cadastrar - mas tb as categorias não aparecem no form */
+$produto = new Produto("", "", "", $categoria, "");
 
 $categorias = ListaCategorias($conexao);
 

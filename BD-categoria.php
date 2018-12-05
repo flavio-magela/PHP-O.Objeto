@@ -20,7 +20,7 @@ function listaCategorias($conexao) {
 
         $categoria = new Categoria();
         $categoria->SetId($categoria_array['id']);
-        $categoria->SetNome($categoria_array['nome']);
+        $nome = $categoria_array['nome'];
 
         array_push($categorias, $categoria);
     }

@@ -1,8 +1,8 @@
 <?php 
 require_once("class/Categoria.php");
 require_once("BD-categoria.php");
-$categoria = new Categoria();
-$categorias = ListaCategorias($conexao);
+// $categoria = new Categoria();
+// $categorias = ListaCategorias($conexao);
 
 ?>
 
