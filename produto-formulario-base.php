@@ -21,7 +21,7 @@ require_once("BD-categoria.php");
 
 		   <!-- campo ckeckbox -->
 		<div class="form-group col-sm-1">
-			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->getUsado() ?> value="true" /></br>
+			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->isUsado() ?> value="true" /></br>
 		</div>
 
 		<table>

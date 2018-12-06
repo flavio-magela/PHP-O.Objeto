@@ -12,7 +12,7 @@ $produto = new Produto();
 
  $categorias = ListaCategorias($conexao);
   //operador ternário
- $produto->getusado($produto->getUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
+ $produto->isusado($produto->isUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
  
  if (buscaProduto($conexao,$id)){
 ?>			
