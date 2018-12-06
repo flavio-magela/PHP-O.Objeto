@@ -2,7 +2,10 @@
  require_once("cabecalho.php"); 
  require_once("BD-produto.php"); 
  require_once("logica-usuario.php");
- require_once("class/Produto.php");
+ /* criação do autoload - carregamento automatico no cabecalho.php - não é mais necessário carrecar as classes aqui.
+		 require_once("class/Produto.php");
+		 require_once("class/Categoria.php");
+*/ 
  
 ?>
 <?php

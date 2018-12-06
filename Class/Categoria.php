@@ -3,7 +3,8 @@
 	class Categoria{
 
 		private $id;
-		private $nome;		
+		private $nome;
+
 
 		// -------------Encapsulamento-------------------
 

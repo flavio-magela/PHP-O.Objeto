@@ -10,7 +10,7 @@
 
 		// --------função construtor - inicializalção de cada atributo-----------
 
-		function _construct($nome, $preco, $descricao, Categoria $categoria, $usados){
+		function __construct($nome, $preco, $descricao, Categoria $categoria, $usado) {
 			$this->produto = $nome;
 			$this->preco = $preco;
 			$this->descricao = $descricao;

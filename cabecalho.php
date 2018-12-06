@@ -1,8 +1,23 @@
 <?php  
-   // No site www.php.net vc usa o error_reportint =(php.ini) para configurar tipos de msg q vc quer que apareça ou não no seu sistema (^ = menos a mensagem E_NOTICE);
-	 error_reporting(E_ALL ^ E_NOTICE);
 
-	 include("mostra-alerta.php");
+/* utilização do autoload - para carregar todas as classes necessário do meu sistema. Como utilizamos o cabeçalho.php em todo os meu form, melhor deixá-lo aqui.*/
+// function carregaClasse($nomeDaClasse){
+
+// 	require_once("class/".$nomeDaClasse.".php");
+// }
+
+// spl_autoload("carregaClasse");
+
+/*função foi definida dentro das parênteses do spl_autoload_register. Isso é uma função anônima, uma função sem nome explícito! */
+
+spl_autoload_register(function($nomeDaClasse) {
+    require_once("class/".$nomeDaClasse.".php");
+});
+
+// No site www.php.net vc usa o error_reportint =(php.ini) para configurar tipos de msg q vc quer que apareça ou não no seu sistema (^ = menos a mensagem E_NOTICE);
+ error_reporting(E_ALL ^ E_NOTICE);
+
+ include("mostra-alerta.php");
 
 ?>
 

@@ -1,8 +1,12 @@
 <?php 
- require_once("class/Categoria.php");
+require_once("cabecalho.php");
 require_once("BD-categoria.php");
 //  $categoria = new Categoria();
 // $categorias = ListaCategorias($conexao);
+/* criação do autoload - carregamento automatico no cabecalho.php - não é mais necessário carrecar as classes aqui.
+		 require_once("class/Produto.php");
+		 require_once("class/Categoria.php");
+*/ 
 
 ?>
 
@@ -21,7 +25,7 @@ require_once("BD-categoria.php");
 
 		   <!-- campo ckeckbox -->
 		<div class="form-group col-sm-1">
-			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->isUsado() ?> value="true" /></br>
+			<label class="alinhar">Usado</label><input type="checkbox" class="form-control" name="usado" <?= $produto->isUsado() ?> value="true" />
 		</div>
 
 		<table>

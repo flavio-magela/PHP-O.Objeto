@@ -1,7 +1,10 @@
 <?php
 require_once("conecta.php");
-require_once("class/Produto.php");
-require_once("class/Categoria.php");
+require_once("cabecalho.php");
+/* criação do autoload - carregamento automatico no cabecalho.php - não é mais necessário carrecar as classes aqui.
+		 require_once("class/Produto.php");
+		 require_once("class/Categoria.php");
+*/ 
 
 function listaProdutos($conexao) {
 
