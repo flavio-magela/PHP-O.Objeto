@@ -7,32 +7,31 @@ function listaProdutos($conexao) {
 
 	$produtos = array();
 	$resultado = mysqli_query($conexao, "select p.*,c.nome as categoria_nome 
-		from produtos as p join categorias as c on c.id=p.categoria_id");
+		from produtos as p join categorias as c on c.id=p.categoria_id ORDER BY p.nome ASC");
 
-	while($produto_buscado = mysqli_fetch_assoc($resultado)) {
+	while($produto_array = mysqli_fetch_assoc($resultado)) {
 
 		$categoria = new Categoria();
-		$categoria->setNome($produto_buscado['categoria_nome']);
-		
-		$produtoNome = $produto_buscado['nome'];
-		$descricao = $produto_buscado['descricao'];
-		$preco = $produto_buscado['preco'];
-		$usado = $produto_buscado['usado'];
+		$categoria->setNome($produto_array['categoria_nome']);
 
-		$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
-		$produto->setId($produto_buscado['id']);
+		$nome = $produto_array['nome'];
+		$descricao = $produto_array['descricao'];
+		$preco = $produto_array['preco'];
+		$usado = $produto_array['usado'];
+
+		$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+		$produto->setId($produto_array['id']);
 
 		array_push($produtos, $produto);
 	}
-
 	return $produtos;
 }
 
 function insereProduto($conexao, Produto $produto) {
 
 	$query = "insert into produtos (nome, preco, descricao, categoria_id, usado) 
-		values ('{$produto->getProduto()}', {$produto->getPreco()}, '{$produto->getDescricao()}', 
-			{$produto->getCategoria()->getId()}, {$produto->isUsado()})";
+		values ('{$produto->getProduto()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', 
+			'{$produto->getCategoria()->getId()}', '{$produto->isUsado()}')";
 
 	return mysqli_query($conexao, $query);
 }
@@ -57,12 +56,12 @@ function buscaProduto($conexao, $id) {
 	$categoria = new Categoria();
 	$categoria->setId($produto_buscado['categoria_id']);
 
-	$produtoNome = $produto_buscado['nome'];
+	$nome = $produto_buscado['nome'];
 	$descricao = $produto_buscado['descricao'];
 	$preco = $produto_buscado['preco'];
 	$usado = $produto_buscado['usado'];
 
-	$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
+	$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 	$produto->setId($produto_buscado['id']);
 
 	return $produto;
@@ -74,7 +73,7 @@ function removeProduto($conexao, $id) {
 	$produto->getId($produto_buscado['id']);
 	$produto->getProduto($produto_buscado['nome']);
 	$produto->getPreco($produto_buscado['preco']);
-	$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
+	$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 
 	$query = "delete from produtos where id = {$id}";
 

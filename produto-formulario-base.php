@@ -1,7 +1,7 @@
 <?php 
-require_once("class/Categoria.php");
+ require_once("class/Categoria.php");
 require_once("BD-categoria.php");
-// $categoria = new Categoria();
+//  $categoria = new Categoria();
 // $categorias = ListaCategorias($conexao);
 
 ?>
@@ -37,7 +37,7 @@ require_once("BD-categoria.php");
 							$selecao = $essaEhACategoria ? "selected = 'selected'" : "";
 						?>
 
-						  <option value="<?= $categoria->getid()?>" <?=$selecao?>> <?= $categoria->getNome() ?></option>  
+						  <option value="<?= $categoria->getId()?>" <?=$selecao?>> <?= $categoria->getNome() ?></option>  
 
 						<?php endforeach ?>
 

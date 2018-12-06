@@ -13,7 +13,7 @@ function insereCategoria($conexao, Categoria $categoria){
 function listaCategorias($conexao) {
 
     $categorias = array();
-    $query = "select * from categorias";
+    $query = "select * from categorias ORDER BY nome ASC";
     $resultado = mysqli_query($conexao, $query);
 
     while($categoria_array = mysqli_fetch_assoc($resultado)) {
