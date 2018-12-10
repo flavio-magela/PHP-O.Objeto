@@ -32,7 +32,11 @@
 			<td ><?= substr($produto->getDescricao(), 0, 40)?></td>
 			<td ><?= $produto->isUsado() ?></td>
 			<td><?= $produto->getCategoria()->getNome() ?></td>			
-			<td><?= $produto->getIsbn() ?></td>
+			<td><?php
+					if($produto->temIsbn()){
+						echo $produto->getIsbn();
+					}  ?>				
+			</td>
 
 
 			<td>

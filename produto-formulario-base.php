@@ -60,7 +60,7 @@ require_once("BD-categoria.php");
 			            <?php
 			            $tipos = array("Produto", "Livro");
 			            foreach($tipos as $tipo) : 
-			                $esseEhOTipo = $produto->getTipoProduto() == $tipo;
+			                $esseEhOTipo = get_class($produto) == $tipo;
 			                $selecao = $esseEhOTipo ? "selected='selected'" : "";
 			            ?>
 			                <option value="<?=$tipo?>" <?=$selecao?>>
@@ -74,7 +74,10 @@ require_once("BD-categoria.php");
 			</tr>	
 		</table></br>		
 		<div class="form-group col-sm-3">
-				<label class="alinhar">ISBN</label> <input placeholder="Código - Caso seja um livro" type="text" class="form-control" name="isbn" value="<?= $produto->getIsbn() ?>" /></br>
+				<label class="alinhar">ISBN</label> <input placeholder="Digite o ISBN - Caso seja um livro" type="text" class="form-control" name="isbn" value="<?php
+				if($produto->temIsbn()){
+					echo $produto->getIsbn();
+					}  ?>" /></br>
 		</div></br>
 			
 

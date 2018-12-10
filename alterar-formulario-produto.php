@@ -6,12 +6,9 @@ require_once("cabecalho.php");
 		 require_once("class/Categoria.php");
 */ 
 
-// $categoria = new Categoria();
-// $categoria->getId($_POST["categoria_id"]);
-
 $id = $_POST['id'];
 
-//instanciar o produtoDao
+//instanciar o produtoDao produto 
 $produtoDao = new produtoDao($conexao);
 $produto = $produtoDao->buscaProduto($id);
 

@@ -6,9 +6,7 @@
 		private $preco;
 		private $descricao;
 		private $categoria;
-		private $usado;		
-		private $isbn;
-		private $tipoProduto;
+		private $usado;	
 
 		// --------função construtor - inicializalção de cada atributo-----------
 
@@ -57,21 +55,8 @@
 		public function setUsado($usado){
 			$this->usado = $usado;
 		}
-		public function getIsbn() {
-        return $this->isbn;
-	    }
-
-	    public function setIsbn($isbn) {
-	        $this->isbn = $isbn;
-	    }
-
-	    public function getTipoProduto() {
-	        return $this->tipoProduto;
-	    }   
-
-	    public function setTipoProduto($tipoProduto) {
-	        $this->tipoProduto = $tipoProduto;
-	    }
+		
+	    
 		// ----------------------- fim encapsulamento---------
 
 		 // Methodo que dá desconto nos preço dinamicamente
@@ -83,7 +68,13 @@
 				$this->preco -= $this->preco * $valor;				
 
 			}
-			return $this->preco;	
+			return $this->preco.".00";	
+		}
+		// ------------- Methodo is livro, verifica se é um livro-----------
+		public function temIsbn(){
+
+			return $this instanceof Livro;
+
 		}
 
 		// ------- exibir o produto como string para impressão(ex. echo)--------------
