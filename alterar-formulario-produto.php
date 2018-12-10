@@ -1,7 +1,6 @@
 <?php
 require_once("cabecalho.php");
-require_once("BD-categoria.php");
-require_once("BD-produto.php");
+
 /* criação do autoload - carregamento automatico no cabecalho.php - não é mais necessário carrecar as classes aqui.
 		 require_once("class/Produto.php");
 		 require_once("class/Categoria.php");
@@ -12,9 +11,12 @@ require_once("BD-produto.php");
 
 $id = $_POST['id'];
 
-//$produto = new Produto();
-$produto = buscaProduto($conexao,$id);
-$categorias = ListaCategorias($conexao);
+//instanciar o produtoDao
+$produtoDao = new produtoDao($conexao);
+$produto = $produtoDao->buscaProduto($id);
+
+$categoriaDao = new categoriaDao($conexao);
+$categorias = $categoriaDao->ListaCategorias();
 
 //operador ternário
 $selecao_usado = $produto->isUsado() ? "checked='checked'" : "";

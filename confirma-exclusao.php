@@ -8,16 +8,19 @@ require_once("BD-produto.php");
 		 require_once("class/Categoria.php");
 */ 
 
-$produto = new Produto();
-
  $id = $_POST['id']; 
- $produto = buscaProduto($conexao,$id);
 
- $categorias = ListaCategorias($conexao);
-  //operador ternário
- $produto->isusado($produto->isUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
+ //instanciar o produtoDao
+ $produtoDao = new produtoDao($conexao);
+ $produto = $produtoDao->buscaProduto($id);
+
+ //instanciar o  categoriaDao
+ $categoriaDao = new categoriaDao($conexao);
+ $categorias = $categoriaDao->ListaCategorias();
+ //operador ternário
+ $produto->isUsado($produto->isUsado() ? "checked='checked'" : ""); //si for usado iqual a true retorna checked se não retorna ""
  
- if (buscaProduto($conexao,$id)){
+ if ($produtoDao->buscaProduto($id)){
 ?>			
 
 	<div class="modal-dialog modal-md ">

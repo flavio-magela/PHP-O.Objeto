@@ -17,7 +17,8 @@ spl_autoload_register(function($nomeDaClasse) {
 // No site www.php.net vc usa o error_reportint =(php.ini) para configurar tipos de msg q vc quer que apareça ou não no seu sistema (^ = menos a mensagem E_NOTICE);
  error_reporting(E_ALL ^ E_NOTICE);
 
- include("mostra-alerta.php");
+ require_once("mostra-alerta.php");
+ require_once("conecta.php");
 
 ?>
 

@@ -45,16 +45,37 @@ require_once("BD-categoria.php");
 
 						<?php endforeach ?>
 
-					</select>						
-
-				</td>
-
-				
-				
+					</select></br>
+				</td>				
 			</tr>
+			
+		</table></br>
+		<table>
+			<tr>
+				<label class="form-group col-sm-1" >Tipo do produto</label>
+				<td>	
+					<!-- Criação da Categoria com Combo Box - Caixa de Seleção -->
 
-
-		</table>
-	
+					<select name="tipoProduto" class="form-control">
+			            <?php
+			            $tipos = array("Produto", "Livro");
+			            foreach($tipos as $tipo) : 
+			                $esseEhOTipo = $produto->getTipoProduto() == $tipo;
+			                $selecao = $esseEhOTipo ? "selected='selected'" : "";
+			            ?>
+			                <option value="<?=$tipo?>" <?=$selecao?>>
+			                    <?=$tipo?>
+			                </option>
+			            <?php
+			            endforeach 
+			            ?>
+        			</select>
+				</td>				
+			</tr>	
+		</table></br>		
+		<div class="form-group col-sm-3">
+				<label class="alinhar">ISBN</label> <input placeholder="Código - Caso seja um livro" type="text" class="form-control" name="isbn" value="<?= $produto->getIsbn() ?>" /></br>
+		</div></br>
+			
 
 

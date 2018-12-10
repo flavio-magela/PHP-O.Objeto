@@ -1,8 +1,7 @@
 
 <?php 
  require_once("cabecalho.php");  
- require_once("BD-produto.php"); 
- 
+  
 ?> 
  <table class="table table-striped table-bordered">
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2></br>
@@ -12,13 +11,17 @@
 	        <th class=" titulo1">Preço Final</th>
 	        <th class=" titulo1">Descrição</th>
 	        <th class=" titulo1">Usado</th>
-	        <th class=" titulo1">Categoria</th>
+	        <th class=" titulo1">Categoria</th>	        
+	        <th class=" titulo1">ISBN</th>	        
 	        <th class=" titulo1">Alterar</th>
 	        <th class="titulo1">Excluir</th>
 	          
 	</tr>	
 	<?php
-	$produtos =listaProdutos($conexao);
+	//instanciar o produtoDao
+	$produtoDao = new produtoDao($conexao);
+
+	$produtos = $produtoDao->listaProdutos();
 	
 	foreach ($produtos as $produto) :
 	?>		
@@ -28,7 +31,10 @@
 			<td >R$ <?= $produto->precoComDesconto(0.1) ?></td>
 			<td ><?= substr($produto->getDescricao(), 0, 40)?></td>
 			<td ><?= $produto->isUsado() ?></td>
-			 <td><?= $produto->getCategoria()->getNome() ?></td>
+			<td><?= $produto->getCategoria()->getNome() ?></td>			
+			<td><?= $produto->getIsbn() ?></td>
+
+
 			<td>
 				<form action="alterar-formulario-produto.php" method="POST"  >
 					<input  type="hidden" name="id" value="<?= $produto->getId() ?>">

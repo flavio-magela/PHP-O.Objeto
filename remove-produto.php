@@ -1,6 +1,5 @@
 <?php
  require_once("cabecalho.php"); 
- require_once("BD-produto.php"); 
  require_once("logica-usuario.php");
  /* criação do autoload - carregamento automatico no cabecalho.php - não é mais necessário carrecar as classes aqui.
 		 require_once("class/Produto.php");
@@ -12,22 +11,20 @@
 
 $id = $_POST['id'];
 
-//operador ternário
-$usado = $produto->istUsado() ? "checked='checked'" : ""; //si for usado iqual a true retorna checked se não retorna ""
+//instanciar o produtoDao
+$produtoDao = new produtoDao($conexao);
 
-$produto = buscaProduto($conexao,$id);  
-$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
-
- if (removeProduto($conexao,$id)){
+ if ($produtoDao->removeProduto($id)){ 
 	?>
-		<p class = "text-success">  Produto: <?= $produto->getProduto()?> no valor de R$ <?= $produto->getPreco()?>. Foi Excluido com sucesso!
+		<p class = "text-success">  
+			Produto foi Excluido com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
-	} else { 
+	} else { 	
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao Excluir o Produto <?= $produto->getProduto()?> no valor de R$ <?= $produto->getPreco()?>: <?= $msg ?>
+			<p class = "text-danger"> Erro ao Excluir o Produto: <?= $msg ?>
 		<?php
 
 }

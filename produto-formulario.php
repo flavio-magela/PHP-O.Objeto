@@ -8,12 +8,13 @@ require_once("logica-usuario.php");
 		 require_once("class/Produto.php");
 		 require_once("class/Categoria.php");
 */ 
-
 verificaUsuario();
 
+//instanciar o  categoriaDao e categoria
+$categoriaDao = new categoriaDao($conexao);
 $categoria = new Categoria();
 $categoria->SetId(1);
-$categorias = ListaCategorias($conexao);
+$categorias = $categoriaDao->ListaCategorias();
 
 $produto = new Produto("", "", "", $categoria, "");
 
