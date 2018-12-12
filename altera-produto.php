@@ -5,37 +5,22 @@
 		 require_once("class/Categoria.php");
 */ 
 
-$categoria = new Categoria();
-$categoria->setId($_POST["categoria_id"]);
-
-$produto_id = $_POST['id'];
-$produtoNome =$_POST["produto"] ;
-$preco = $_POST["preco"];
-$descricao =$_POST["descricao"];
-$categoria = $categoria;
-$isbn = $_POST['isbn'];
 $tipoProduto = $_POST['tipoProduto'];
+$produto_id = $_POST['id'];
+$categoria_id = $_POST['categoria_id'];
 
-if(array_key_exists('usado', $_POST)){
-	$usado = true;	
-} else{
-	$usado = false;
-}
-//instanciar o produto
-if($tipoProduto == "Livro Fisico") {
-    $produto = new LivroFisico($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-    $produto->setIsbn($isbn); 
-    $produto->setTaxaImpressao($taxaImpressao);   
-} else if($tipoProduto == "Ebook") {
-    $produto = new Ebook($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-    $produto->setIsbn($isbn); 
-    $produto->setWaterMark($waterMark);
-} else{
-	$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-}
-
+$factory = new ProdutoFactory();
+$produto = $factory->criaPor($tipoProduto, $_POST);
+$produto->atualizaBaseadoEm($_POST);
 
 $produto->setId($produto_id);
+$produto->getCategoria()->setId($categoria_id);
+
+if(array_key_exists('usado', $_POST)) {
+	$produto->setUsado("true");
+} else {
+	$produto->setUsado("false");
+}
 
 //instanciar o ProdutoDao
 $produtoDao = new ProdutoDao($conexao);
