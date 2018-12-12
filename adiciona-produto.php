@@ -7,31 +7,22 @@ require_once("logica-usuario.php");
 */ 
 
 verificaUsuario();
-
-$categoria = new Categoria();
-$categoria->setId($_POST["categoria_id"]);
-
-$nome = $_POST["produto"];
-$preco = $_POST["preco"];
-$descricao =$_POST["descricao"];
-$categoria = $categoria;
-$isbn = $_POST['isbn'];
+$nome = $_POST['nome'];
 $tipoProduto = $_POST['tipoProduto'];
+$categoria_id = $_POST["categoria_id"];
+
+//instanciar o produtoFactory()
+$factory = new ProdutoFactory();
+$produto = $factory->criaPor($tipoProduto, $_POST);
+$produto->atualizaBaseadoEm($_POST);
+$produto->getCategoria()->setId($categoria_id);
+
 
 if(array_key_exists('usado', $_POST)){
-	$usado = "true";	
+	$produto->setUsado("true");	
 } else{
-	$usado = "false";
+	$produto->setUsado("false");
 }
-
-//instanciar o produto
-if($tipoProduto == "Livro") {
-    $produto = new Livro($nome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-    $produto->setIsbn($isbn);    
-} else {
-    $produto = new Livro($nome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-} 
-
 //instanciar o produtoDao
 $produtoDao = new produtoDao($conexao);
 
@@ -47,8 +38,8 @@ if ($produtoDao->insereProduto($produto)){
 			<p class = "text-danger"> Erro ao inserir o produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Erro inserção nos campos: <?= $msg ?>
 		<?php
 
-}
+		}
 mysqli_close($conexao);
+		?>
 
-?>
 <?php require_once ("rodape.php"); ?>

@@ -7,12 +7,15 @@
  	<h2 class="fa fa-list-alt titulo" > Lista de Produtos</h2></br>
  	<tr></br>			
 	        <th class=" titulo1">Produto</th>
-	        <th class=" titulo1">Preço Unid.</th>
-	        <th class=" titulo1">Preço Final</th>
-	        <th class=" titulo1">Descrição</th>
+	        <th class=" titulo1">Preço do produto</th>
+	        <th class=" titulo1">Preço c/ Desconto</th>
+	        <th class=" titulo1">Imposto sobre produto</th>
+	        <th class=" titulo1">Descrição do Produto</th>
 	        <th class=" titulo1">Usado</th>
 	        <th class=" titulo1">Categoria</th>	        
-	        <th class=" titulo1">ISBN</th>	        
+	        <th class=" titulo1">ISBN</th>
+	        <th class=" titulo1">Taxa Impressão</th>
+	        <th class=" titulo1">Marca Dàgua</th>	        
 	        <th class=" titulo1">Alterar</th>
 	        <th class="titulo1">Excluir</th>
 	          
@@ -29,6 +32,7 @@
 			<td ><?= $produto->getProduto() ?></td>
 			<td >R$ <?= $produto->getPreco() ?></td>
 			<td >R$ <?= $produto->precoComDesconto(0.1) ?></td>
+			<td >R$ <?= $produto->calculaImposto() ?></td>
 			<td ><?= substr($produto->getDescricao(), 0, 40)?></td>
 			<td ><?= $produto->isUsado() ?></td>
 			<td><?= $produto->getCategoria()->getNome() ?></td>			
@@ -37,7 +41,16 @@
 						echo $produto->getIsbn();
 					}  ?>				
 			</td>
-
+			<td>R$ <?php
+					if($produto->temTaxaImpressao()){
+						echo $produto->getTaxaImpressao();
+					}  ?>				
+			</td>
+			<td><?php
+					if($produto->temWaterMark()){
+						echo $produto->getWaterMark();
+					}  ?>				
+			</td>
 
 			<td>
 				<form action="alterar-formulario-produto.php" method="POST"  >

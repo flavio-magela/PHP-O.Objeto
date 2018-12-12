@@ -6,13 +6,12 @@ require_once("cabecalho.php");
 		 require_once("class/Categoria.php");
 */ 
 
-$id = $_POST['id'];
-
-//instanciar o produtoDao produto 
+//instanciar  
 $produtoDao = new produtoDao($conexao);
-$produto = $produtoDao->buscaProduto($id);
-
 $categoriaDao = new categoriaDao($conexao);
+
+$id = $_POST['id'];
+$produto = $produtoDao->buscaProduto($id);
 $categorias = $categoriaDao->ListaCategorias();
 
 //operador ternário

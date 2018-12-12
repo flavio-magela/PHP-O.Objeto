@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Nov-2018 às 02:36
+-- Generation Time: 12-Dez-2018 às 20:58
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -56,27 +56,53 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 
 CREATE TABLE `produtos` (
   `id` int(11) NOT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `preco` decimal(10,2) DEFAULT NULL,
-  `descricao` text,
-  `categoria_id` int(11) DEFAULT NULL,
-  `usado` tinyint(1) DEFAULT '0'
+  `nome` varchar(255) NOT NULL,
+  `preco` decimal(10,2) NOT NULL,
+  `descricao` text NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  `usado` tinyint(1) DEFAULT NULL,
+  `isbn` varchar(255) DEFAULT NULL,
+  `tipoProduto` varchar(255) DEFAULT NULL,
+  `taxaImpressao` varchar(255) DEFAULT NULL,
+  `waterMark` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
-(45, 'Celular', '500.00', 'Moto G5 Plus', 4, 1),
-(46, 'Polo 1.6 2011', '21000.00', 'Completo com banco de couro', 5, 1),
-(47, 'Lapis', '2.00', 'Com borracha', 2, 0),
-(48, 'Geladeira', '1000.00', 'EletroLux2 Portas', 3, 1),
-(49, 'Camisa do Galo', '150.00', 'Tamanho P baby Look', 1, 1),
-(50, 'Camisa do Galo', '190.00', 'Tamanho GG Oficial  - Preta e Branca', 1, 0),
-(52, 'Maquiador', '49.00', 'Maquiador Profissional Amore', 6, 1),
-(53, 'Agenda 2019', '23.00', 'Agenda 2019 da Tibras', 2, 0),
-(54, 'Cesta BÃ¡sica', '400.00', 'Cesta BÃ¡sica - 2 Pacote de Arroz de 5 KG, 3 Pacote de FeijÃ£o,  3 Pacote de MacarrÃ£o de 1 kg, 2 Lata de Ã“leo, 1 Pacote de Faria de Mandioca, 1 Pacote de Sal, 1 Pacote de Fuba, 1 Pacote de Faria de Trigo, 2 Pasta de Dente, 4 Sabonetes,  1 Rolo de Papel HigiÃªnico de 8, 3 Limpol, 1 Bucha de limpeza, 2 Kg de SabÃ£o em PÃ³, 1 Lata de Massa de Tomate, 1 Pacote de Biscoite de 2 KG', 9, 0);
+INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`, `isbn`, `tipoProduto`, `taxaImpressao`, `waterMark`) VALUES
+(112, 'Computador', '1900.00', 'Core I5 SSD 450 GB 4 GB de RAM Teclado, mouse, caixa de som', 4, 1, NULL, NULL, NULL, NULL),
+(115, 'Polo 1.6 2011', '18000.00', 'Completo', 5, 1, '', 'Produto', NULL, NULL),
+(116, 'Geladeira', '800.00', 'Eletrolux 2 portas', 3, 1, '', 'Produto', NULL, NULL),
+(117, 'Notebook', '500.00', 'Semp Toshiba Dual Core 4 GB 500 de HD', 4, 1, NULL, NULL, NULL, NULL),
+(119, '1000 Tijolos ', '350.00', 'CauÃª duplo', 8, 0, NULL, NULL, NULL, NULL),
+(120, 'Livro C', '300.00', 'Casa do CÃ³digo', 2, 0, '', 'Produto', '', ''),
+(121, 'Celular', '300.00', 'LG l5', 4, 1, 'BX2548875', 'Produto', NULL, NULL),
+(122, 'Carlos Henrique', '290.00', 'Industrial manual', 8, 1, '', 'Livro', NULL, NULL),
+(123, 'Livro C++', '110.00', 'Livraria Acaiaca', 2, 1, 'BX2548875', 'Livro', NULL, NULL),
+(125, 'Livro C', '190.00', 'Galeria Ouvidor', 2, 1, 'BX2548875', 'Ebook', '', 'AG568752114W'),
+(126, 'Livro C', '190.00', 'Galeria Ouvidor', 2, 1, 'BX2548875', 'Ebook', '', 'AG568752114W'),
+(127, 'Lapis', '2.00', 'Comum', 2, 0, '', 'Produto', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
+(1, 'flavio.mrsantos@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Indexes for dumped tables
@@ -95,6 +121,12 @@ ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -108,7 +140,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

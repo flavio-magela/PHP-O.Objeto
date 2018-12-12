@@ -58,27 +58,52 @@ require_once("BD-categoria.php");
 
 					<select name="tipoProduto" class="form-control">
 			            <?php
-			            $tipos = array("Produto", "Livro");
+			            $tipos = array("Produto", "Livro Fisico", "Ebook");
 			            foreach($tipos as $tipo) : 
-			                $esseEhOTipo = get_class($produto) == $tipo;
+			            	$tipoSemEspaco = str_replace(" ", "", $tipo); // tirar o espaço do "Livro Fisico" fazer uma comparação com $tipo
+			                $esseEhOTipo = get_class($produto) == $tipoSemEspaco;
 			                $selecao = $esseEhOTipo ? "selected='selected'" : "";
 			            ?>
-			                <option value="<?=$tipo?>" <?=$selecao?>>
-			                    <?=$tipo?>
-			                </option>
+			            <!-- separar a classe Livro no groupbox -->
+				            <?php if($tipo == "Livro Fisico") : ?>
+				            	<optgroup label="Livros">
+				            <?php endif ?> 
+				                <option value="<?=$tipoSemEspaco?>" <?=$selecao?>>
+				                    <?=$tipo?>
+				                </option>
+				            <?php if($tipo == "Ebook") : ?>
+				            	</optgroup >
+				            <?php endif ?> 
 			            <?php
 			            endforeach 
 			            ?>
         			</select>
 				</td>				
 			</tr>	
-		</table></br>		
-		<div class="form-group col-sm-3">
+		</table>
+		<div></br>
+			<div class="form-group col-sm-3"></br>
 				<label class="alinhar">ISBN</label> <input placeholder="Digite o ISBN - Caso seja um livro" type="text" class="form-control" name="isbn" value="<?php
 				if($produto->temIsbn()){
 					echo $produto->getIsbn();
-					}  ?>" /></br>
-		</div></br>
+					}  ?>" />
+			</div>
+			
+			<div class="form-group col-sm-4">
+					<label class="alinhar">Taxa Impressão</label> <input placeholder="Digite a Taxa Impr. R$ - Para Livro Fisico" type="number" class="form-control" name="taxaImpressao" value="<?php
+					if($produto->temTaxaImpressao()){
+						echo $produto->getTaxaImpressao();
+						}  ?>" />
+			</div>
+			<div class="form-group col-sm-4"></br>
+					<label class="alinhar">WaterMark</label> <input placeholder="Digite a Marca Dágua- Para Ebook(Virtual)" type="text" class="form-control" name="waterMark" value="<?php
+					if($produto->temWaterMark()){
+						echo $produto->getWaterMark();
+						}  ?>" /></br>
+			</div>
+			
+		</div>		
+		
 			
 
 

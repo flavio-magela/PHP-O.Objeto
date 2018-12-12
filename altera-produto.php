@@ -22,12 +22,18 @@ if(array_key_exists('usado', $_POST)){
 	$usado = false;
 }
 //instanciar o produto
-if($tipoProduto == "Livro") {
-    $produto = new Livro($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);    
-    $produto->setIsbn($isbn);    
-} else {
-    $produto = new Livro($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
-} 
+if($tipoProduto == "Livro Fisico") {
+    $produto = new LivroFisico($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
+    $produto->setIsbn($isbn); 
+    $produto->setTaxaImpressao($taxaImpressao);   
+} else if($tipoProduto == "Ebook") {
+    $produto = new Ebook($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
+    $produto->setIsbn($isbn); 
+    $produto->setWaterMark($waterMark);
+} else{
+	$produto = new Produto($produtoNome, $preco, $descricao, $categoria, $usado, $tipoProduto);
+}
+
 
 $produto->setId($produto_id);
 
