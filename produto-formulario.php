@@ -16,7 +16,7 @@ $categoria = new Categoria();
 $categoria->SetId(1);
 $categorias = $categoriaDao->ListaCategorias();
 
-$produto = new Produto("", "", "", $categoria, "");
+$produto = new OutrosProdutos("", "", "", $categoria, "");
 
 ?>
 

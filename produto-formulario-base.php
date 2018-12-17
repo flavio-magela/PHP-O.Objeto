@@ -55,10 +55,9 @@ require_once("BD-categoria.php");
 				<label class="form-group col-sm-1" >Tipo do produto</label>
 				<td>	
 					<!-- Criação da Categoria com Combo Box - Caixa de Seleção -->
-
 					<select name="tipoProduto" class="form-control">
 			            <?php
-			            $tipos = array("Produto", "Livro Fisico", "Ebook");
+			            $tipos = array("OutrosProdutos", "Livro Fisico", "Ebook");
 			            foreach($tipos as $tipo) : 
 			            	$tipoSemEspaco = str_replace(" ", "", $tipo); // tirar o espaço do "Livro Fisico" fazer uma comparação com $tipo
 			                $esseEhOTipo = get_class($produto) == $tipoSemEspaco;

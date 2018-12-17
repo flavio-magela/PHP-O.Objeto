@@ -8,6 +8,7 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 $nome = $_POST['nome'];
+$produtonome = $_POST['produto'];
 $tipoProduto = $_POST['tipoProduto'];
 $categoria_id = $_POST["categoria_id"];
 

@@ -1,11 +1,11 @@
 <?php 
 class ProdutoFactory {
 
-    private $classes = array("Produto", "Ebook", "LivroFisico");
+    private $classes = array("OutrosProdutos", "Ebook", "LivroFisico");
 
     public function criaPor($tipoProduto, $params) {
 
-    	$produtoNome = $params['nome'];
+    	$produtoNome = $params['produto'];
 		$preco = $params['preco'];
 		$descricao = $params['descricao'];
 		$categoria = new Categoria();
@@ -15,7 +15,7 @@ class ProdutoFactory {
             return new $tipoProduto($produtoNome, $preco, $descricao, $categoria, $usado);
         } else {
 
-            return new Produto($produtoNome, $preco, $descricao, $categoria, $usado);
+            return new OutrosProdutos($produtoNome, $preco, $descricao, $categoria, $usado);
         }
     }
 }
