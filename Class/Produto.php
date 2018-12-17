@@ -2,7 +2,7 @@
 	
 	class Produto{
 		private $id;
-		private $nome;
+		private $produtoNome;
 		private $preco;
 		private $descricao;
 		private $categoria;
@@ -10,9 +10,9 @@
 
 		// --------função construtor - inicializalção de cada atributo-----------
 
-		function __construct($nome, $preco, $descricao, Categoria $categoria, $usado) {
+		function __construct($produtoNome, $preco, $descricao, Categoria $categoria, $usado) {
 
-			$this->produto = $nome;
+			$this->produto = $produtoNome;
 			$this->preco = $preco;
 			$this->descricao = $descricao;
 			$this->categoria = $categoria;
@@ -87,7 +87,7 @@
 
     	}
 		public function atualizaBaseadoEm($params) {
-			
+
 	        if ($this->temIsbn()) {
 	            $this->setIsbn($params["isbn"]);
 	        }

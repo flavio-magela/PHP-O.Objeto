@@ -5,7 +5,7 @@ class ProdutoFactory {
 
     public function criaPor($tipoProduto, $params) {
 
-    	$produtoNome = $params['produto'];
+    	$produtoNome = $params['nome'];
 		$preco = $params['preco'];
 		$descricao = $params['descricao'];
 		$categoria = new Categoria();

@@ -16,9 +16,10 @@ class ProdutoDao{
 
 		while($produto_array = mysqli_fetch_assoc($resultado)) {			
 			
-			$tipoProduto = $produto_array['tipoProduto'];
-			$produto_id = $produto_array['id'];	
-			$categoria_id = $produto_array['categoria_nome'];			
+			$tipoProduto = $produto_array['tipoProduto'];			
+			$produto_id = $produto_array['id'];
+			$produtoNome = $produto_array['produto'];	
+			$categoria_nome = $produto_array['categoria_nome'];			
 
 			//instanciar o produtoFactory()
 			$factory = new ProdutoFactory();
