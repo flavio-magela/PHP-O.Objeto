@@ -12,7 +12,7 @@
 
 		function __construct($produtoNome, $preco, $descricao, Categoria $categoria, $usado) {
 
-			$this->produto = $produtoNome;
+			$this->produtoNome = $produtoNome;
 			$this->preco = $preco;
 			$this->descricao = $descricao;
 			$this->categoria = $categoria;
@@ -29,8 +29,8 @@
 		public function setId($id){
 			$this->id = $id;
 		}
-		public function getProduto(){
-			return $this->produto;
+		public function getProdutoNome(){
+			return $this->produtoNome;
 		}
 		
 		public function getPreco(){
@@ -102,7 +102,7 @@
 
 		function __toString() {
 			
-			return $this->nome.": R$ ".$this->preco;	
+			return $this->produtoNome.": R$ ".$this->preco;	
 		}
 
 		/*---- metodo chamado na hora que o produto é destruido.  usado mais para conexão com o banco de dados ou encerrar a comunicação com algum serviço externo 

@@ -29,7 +29,7 @@
 	foreach ($produtos as $produto) :
 	?>		
 		<tr>			
-			<td ><?= $produto->getProduto() ?></td>
+			<td ><?= $produto->getProdutoNome() ?></td>
 			<td >R$ <?= $produto->getPreco() ?></td>
 			<td >R$ <?= $produto->precoComDesconto(0.1) ?></td>
 			<td >R$ <?= $produto->calculaImposto() ?></td>

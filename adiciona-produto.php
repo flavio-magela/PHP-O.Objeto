@@ -8,7 +8,7 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 $nome = $_POST['nome'];
-$produtonome = $_POST['produto'];
+$produtoNome = $_POST['produto'];
 $tipoProduto = $_POST['tipoProduto'];
 $categoria_id = $_POST["categoria_id"];
 
@@ -29,14 +29,14 @@ $produtoDao = new produtoDao($conexao);
 
 if ($produtoDao->insereProduto($produto)){
 	?>
-		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Produto adicionado com sucesso!
+		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProdutoNome() ?>, no valor de R$ <?= $produto->getPreco() ?>. Produto adicionado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
 	} else { 
 		$msg = mysqli_error($conexao);
 		?>
-			<p class = "text-danger"> Erro ao inserir o produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Erro inserção nos campos: <?= $msg ?>
+			<p class = "text-danger"> Erro ao inserir o produto <?= $produto->getProdutoNome() ?>, no valor de R$ <?= $produto->getPreco() ?>. Erro inserção nos campos: <?= $msg ?>
 		<?php
 
 		}

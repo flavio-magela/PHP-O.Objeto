@@ -12,8 +12,9 @@ class ProdutoDao{
 	function listaProdutos() {
 
 		$produtos = array();
-		$resultado = mysqli_query($this->conexao,  "select p.*,c.nome as categoria_nome 
-			from produtos as p join categorias as c on c.id=p.categoria_id");
+		$resultado = mysqli_query($this->conexao, "select p.*,c.nome as categoria_nome
+				 from produtos as p join categorias as c on c.id=p.categoria_id
+				 ORDER BY p.nome ASC");
 
 		while($produto_array = mysqli_fetch_assoc($resultado)) {			
 			
@@ -54,7 +55,7 @@ class ProdutoDao{
 	    $tipoProduto = get_class($produto);
 
 		$query = "insert into produtos (nome, preco, descricao, categoria_id, 
-        usado, isbn, tipoProduto, taxaImpressao, waterMark) values ('{$produto->getProduto()}', 
+        usado, isbn, tipoProduto, taxaImpressao, waterMark) values ('{$produto->getProdutoNome()}', 
             {$produto->getPreco()}, '{$produto->getDescricao()}', 
                 {$produto->getCategoria()->getId()}, {$produto->isUsado()}, 
                     '{$isbn}', '{$tipoProduto}', '{$taxaImpressao}', '{$waterMark}')";
@@ -82,7 +83,7 @@ class ProdutoDao{
 	    $tipoProduto = get_class($produto);
 
 		$query = "update produtos set 
-	                             nome = '{$produto->getProduto()}', 
+	                             nome = '{$produto->getProdutoNome()}', 
 		                         preco = '{$produto->getPreco()}',
 		                         descricao = '{$produto->getDescricao()}',
 		                         categoria_id= '{$produto->getCategoria()->getId()}', 
