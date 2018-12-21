@@ -10,13 +10,13 @@ require_once("BD-categoria.php");
 
 ?>
 
-		<div class="form-group col-sm-5">
+		<!-- <div class="form-group col-sm-5">
 			<label class="alinhar">Nome  </label><input   type="text" class="form-control" name="nome" placeholder="Nome do Comprador" required /></br>
-		</div>	
-		<div class="form-group col-sm-4">
-			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="produto" value="<?= $produto->getProdutoNome()?>" /></br>
-		</div>	
+		</div> -->	
 		<div class="form-group col-sm-3">
+			<label class="alinhar">Produto</label><input  placeholder="Nome do Produto" required type="text" class="form-control" name="nome" value="<?= $produto->getProdutoNome()?>" /></br>
+		</div>	
+		<div class="form-group col-sm-2">
 			<label class="alinhar">Preço  </label> <input placeholder="Preço do Produto" required type="number" class="form-control" name="preco" value="<?= $produto->getPreco() ?>" /></br>
 		</div>	
 		<div class="form-group col-sm-7">
@@ -49,7 +49,7 @@ require_once("BD-categoria.php");
 				</td>				
 			</tr>
 			
-		</table></br>
+		</table>
 		<table>
 			<tr>
 				<label class="form-group col-sm-1" >Tipo do produto</label>
@@ -88,20 +88,20 @@ require_once("BD-categoria.php");
 					}  ?>" />
 			</div>
 			
-			<div class="form-group col-sm-4">
+			<div class="form-group col-sm-3">
 					<label class="alinhar">Taxa Impressão</label> <input placeholder="Digite a Taxa Impr. R$ - Para Livro Fisico" type="number" class="form-control" name="taxaImpressao" value="<?php
 					if($produto->temTaxaImpressao()){
 						echo $produto->getTaxaImpressao();
 						}  ?>" />
 			</div>
-			<div class="form-group col-sm-4"></br>
+			<div class="form-group col-sm-3"></br>
 					<label class="alinhar">WaterMark</label> <input placeholder="Digite a Marca Dágua- Para Ebook(Virtual)" type="text" class="form-control" name="waterMark" value="<?php
 					if($produto->temWaterMark()){
 						echo $produto->getWaterMark();
 						}  ?>" /></br>
-			</div>
+			</div></br>
 			
-		</div>		
+		</div>	</br>	
 		
 			
 

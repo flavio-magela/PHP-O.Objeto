@@ -27,7 +27,7 @@ require_once("BD-produto.php");
 		<div  class="modal-content"></br>
 			<div class="modal-body">
 			      	
-			    <p> Deseja realmente excluir o Produto: <?= $produto->getProduto()?> no valor de R$ <?= $produto->getPreco()?>?</p>
+			    <p> Deseja realmente excluir o Produto: <?= $produto->getProdutoNome()?> no valor de R$ <?= $produto->getPreco()?>?</p>
 			</div>
 	   		<div class="modal-footer">
 				<form action="remove-produto.php" method="POST"  >						

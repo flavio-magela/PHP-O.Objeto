@@ -7,8 +7,8 @@ require_once("logica-usuario.php");
 */ 
 
 verificaUsuario();
-$nome = $_POST['nome'];
-$produtoNome = $_POST['produto'];
+//$nome = $_POST['nome'];
+$produtoNome = $_POST['nome'];
 $tipoProduto = $_POST['tipoProduto'];
 $categoria_id = $_POST["categoria_id"];
 
@@ -29,7 +29,7 @@ $produtoDao = new produtoDao($conexao);
 
 if ($produtoDao->insereProduto($produto)){
 	?>
-		<p class = "text-success"> O Sr(a). <?=$nome; ?> comprou o produto <?= $produto->getProdutoNome() ?>, no valor de R$ <?= $produto->getPreco() ?>. Produto adicionado com sucesso!
+		<p class = "text-success"> O produto <?= $produto->getProdutoNome() ?>, no valor de R$ <?= $produto->getPreco() ?>. Produto adicionado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php

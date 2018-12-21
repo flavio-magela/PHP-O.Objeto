@@ -27,7 +27,7 @@ $produtoDao = new ProdutoDao($conexao);
 
 if ($produtoDao->alteraProduto($produto)){
 	?>
-		<p class = "text-success"> O Produto <?= $produto->getProduto() ?>, no valor de R$ <?= $produto->getPreco() ?>. Foi alterado com sucesso!
+		<p class = "text-success"> O Produto <?= $produto->getProdutoNome() ?>, no valor de R$ <?= $produto->getPreco() ?>. Foi alterado com sucesso!
 		<li><a class="btn btn-primary" href="produto-formulario.php">OK</a></li>
 
 	<?php
